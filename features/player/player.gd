@@ -32,3 +32,7 @@ func _update_sprite() -> void:
 		$Sprite2D.flip_h = true
 	elif _input_direction.x > 0.0:
 		$Sprite2D.flip_h = false
+
+
+func _on_bow_ammo_changed(new_ammo: int) -> void:
+	print(new_ammo)

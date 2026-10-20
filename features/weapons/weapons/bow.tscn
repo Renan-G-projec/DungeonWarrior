@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ekpvivw2k8ru"]
+
+[ext_resource type="PackedScene" uid="uid://bvc4oqeaqkdcs" path="res://features/weapons/bullet_weapon.tscn" id="1_vbkvu"]
+[ext_resource type="PackedScene" uid="uid://dsxik7rm7omd4" path="res://features/weapons/bullets/arrow/bullet_arrow.tscn" id="2_pvikp"]
+
+[node name="Bow" unique_id=148830378 instance=ExtResource("1_vbkvu")]
+bullet = ExtResource("2_pvikp")
+
+[node name="RechargeCooldown" parent="." index="3" unique_id=652784013]
+wait_time = 0.8

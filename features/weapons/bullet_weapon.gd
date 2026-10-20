@@ -23,22 +23,26 @@ signal max_ammo_changed(new_max_amo: int)
 signal started_recharging()
 signal ended_recharging()
 
-var _can_attack: bool = true
+var _is_recharging: bool = false
+var _is_on_cooldown: bool = false
 
 func attack() -> void:
-	if !_can_attack: return
+	if _is_recharging || _is_on_cooldown: return
 	
 	var instantiated_bullet = bullet.instantiate()
 	get_tree().root.add_child(instantiated_bullet)
 	
 	instantiated_bullet.velocity = Vector2.ONE * bullet_velocity
 	instantiated_bullet.global_position = %BulletSpawn.global_position
+	instantiated_bullet.rotation = rotation
 	
-	_can_attack = false
+	_is_on_cooldown = true
 	ammo -= 1
+	%ShootCooldown.start()
 
 func start_recharging() -> void:
-	_can_attack = false
+	if _is_recharging: return
+	_is_recharging = true
 	started_recharging.emit()
 	%RechargeCooldown.start()
 
@@ -48,12 +52,11 @@ func _process(delta: float) -> void:
 func _to_mouse() -> float:
 	return (get_global_mouse_position() - global_position).angle()
 
-
 func _on_shoot_cooldown_timeout() -> void:
-	_can_attack = true
-
+	_is_on_cooldown = false
 
 func _on_recharge_cooldown_timeout() -> void:
-	_can_attack = true
+	_is_recharging = false
+	
 	ammo = max_ammo
 	ended_recharging.emit()
