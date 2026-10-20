@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hjqp6neu5qh2"]
+
+[ext_resource type="Texture2D" uid="uid://bcs3p5vdech0p" path="res://icon.svg" id="1_7jv7s"]
+[ext_resource type="Script" uid="uid://v7of0dd7sa60" path="res://features/weapons/bullets/bullet_base.gd" id="1_npubr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1p6d"]
+radius = 3.0
+
+[node name="BulletBase" type="Area2D" unique_id=631913319]
+script = ExtResource("1_npubr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=844408338]
+shape = SubResource("CircleShape2D_d1p6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=19741843]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_7jv7s")
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1026420694]
+wait_time = 4.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

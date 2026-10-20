@@ -3,6 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var speed: float = 32.0
+@export var weapon: WeaponBase
 
 var _input_direction: Vector2
 
@@ -15,6 +16,9 @@ func _physics_process(delta: float) -> void:
 func _update_inputs() -> void:
 	_input_direction.x = Input.get_axis("walk_left", "walk_right")
 	_input_direction.y = Input.get_axis("walk_up", "walk_down")
+	
+	if Input.is_action_just_pressed("attack"):
+		weapon.attack()
 
 func _update_velocity() -> void:
 	var direction_to_go: Vector2 = _input_direction.normalized()
