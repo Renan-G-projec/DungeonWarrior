@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ic078if115q4" path="res://features/player/player.gd" id="1_fcb3x"]
 [ext_resource type="Texture2D" uid="uid://bcs3p5vdech0p" path="res://icon.svg" id="1_sjcu7"]
+[ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_emvbc"]
+[ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_i250s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(8, 8)
@@ -16,3 +18,14 @@ texture = ExtResource("1_sjcu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=82784212]
 shape = SubResource("RectangleShape2D_d1p6d")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=937912766]
+script = ExtResource("3_emvbc")
+max_life = 80.0
+life = 80.0
+metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
+
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]
+offset_top = 9.0
+offset_bottom = 9.0
+bind_health_component = NodePath("../HealthComponent")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cr6e8ow0yxrfy"]
+
+[ext_resource type="Script" uid="uid://dq5r5w7gsax1e" path="res://features/components/lifebar.gd" id="1_7gnfo"]
+
+[node name="Lifebar" type="Control" unique_id=1262679545]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7gnfo")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1591409215]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.5
+offset_right = 14.5
+offset_bottom = 4.0
+grow_horizontal = 2
+show_percentage = false
