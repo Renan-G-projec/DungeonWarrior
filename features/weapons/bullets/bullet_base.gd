@@ -2,7 +2,7 @@
 class_name BulletBase
 extends Area2D
 
-@export var damage: float
+@export var damage: float = 5.0
 
 var velocity: Vector2
 

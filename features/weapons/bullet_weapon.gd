@@ -41,7 +41,7 @@ func attack() -> void:
 	%ShootCooldown.start()
 
 func start_recharging() -> void:
-	if _is_recharging: return
+	if _is_recharging || ammo > 0: return
 	_is_recharging = true
 	started_recharging.emit()
 	%RechargeCooldown.start()
@@ -56,7 +56,6 @@ func _on_shoot_cooldown_timeout() -> void:
 	_is_on_cooldown = false
 
 func _on_recharge_cooldown_timeout() -> void:
-	_is_recharging = false
-	
 	ammo = max_ammo
 	ended_recharging.emit()
+	_is_recharging = false

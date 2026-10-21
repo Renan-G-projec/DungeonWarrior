@@ -23,8 +23,8 @@ shape = SubResource("RectangleShape2D_d1p6d")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1190549742]
 script = ExtResource("2_valvq")
-max_life = 20.0
-life = 20.0
+max_life = 25.0
+life = 25.0
 metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 
 [node name="FeelComponent" type="Node" parent="." unique_id=912301115]
