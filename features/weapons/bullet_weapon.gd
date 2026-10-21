@@ -32,9 +32,9 @@ func attack() -> void:
 	var instantiated_bullet = bullet.instantiate()
 	get_tree().root.add_child(instantiated_bullet)
 	
-	instantiated_bullet.velocity = Vector2.ONE * bullet_velocity
+	instantiated_bullet.velocity = _to_mouse().normalized() * bullet_velocity
 	instantiated_bullet.global_position = %BulletSpawn.global_position
-	instantiated_bullet.rotation = rotation
+	instantiated_bullet.global_rotation = global_rotation
 	
 	_is_on_cooldown = true
 	ammo -= 1
@@ -47,10 +47,10 @@ func start_recharging() -> void:
 	%RechargeCooldown.start()
 
 func _process(delta: float) -> void:
-	rotation = _to_mouse()
+	rotation = _to_mouse().angle()
 	
-func _to_mouse() -> float:
-	return (get_global_mouse_position() - global_position).angle()
+func _to_mouse() -> Vector2:
+	return (get_global_mouse_position() - global_position)
 
 func _on_shoot_cooldown_timeout() -> void:
 	_is_on_cooldown = false

@@ -23,10 +23,12 @@ extends Node
 
 signal max_life_changed(new_max_life: float)
 signal life_changed(new_life: float)
+signal took_damage(damage: float)
 signal died()
 
 func take_damage(damage: float) -> void:
 	life -= damage
+	took_damage.emit(damage)
 
 func die() -> void:
 	life = -1.0

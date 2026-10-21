@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dq3vfwc6qgd5e"]
+
+[ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_b8rtt"]
+[ext_resource type="Texture2D" uid="uid://bcs3p5vdech0p" path="res://icon.svg" id="1_owsju"]
+[ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="2_valvq"]
+[ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="3_b8rtt"]
+[ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_xsgr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
+size = Vector2(10, 10)
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=651179315]
+collision_layer = 2
+script = ExtResource("1_b8rtt")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1142973533]
+unique_name_in_owner = true
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_owsju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216348714]
+shape = SubResource("RectangleShape2D_d1p6d")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1190549742]
+script = ExtResource("2_valvq")
+max_life = 20.0
+life = 20.0
+metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
+
+[node name="FeelComponent" type="Node" parent="." unique_id=912301115]
+script = ExtResource("4_xsgr6")
+metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
+
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("3_b8rtt")]
+offset_top = 6.0
+offset_bottom = 6.0
+bind_health_component = NodePath("../HealthComponent")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
