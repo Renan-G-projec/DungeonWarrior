@@ -56,6 +56,6 @@ func _on_shoot_cooldown_timeout() -> void:
 	_is_on_cooldown = false
 
 func _on_recharge_cooldown_timeout() -> void:
+	_is_recharging = false
 	ammo = max_ammo
 	ended_recharging.emit()
-	_is_recharging = false

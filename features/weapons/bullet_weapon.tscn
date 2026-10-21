@@ -19,10 +19,12 @@ position = Vector2(6, 0)
 [node name="ShootCooldown" type="Timer" parent="." unique_id=1198439160]
 unique_name_in_owner = true
 wait_time = 0.3
+one_shot = true
 
 [node name="RechargeCooldown" type="Timer" parent="." unique_id=652784013]
 unique_name_in_owner = true
 wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="timeout" from="RechargeCooldown" to="." method="_on_recharge_cooldown_timeout"]

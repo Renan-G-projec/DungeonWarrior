@@ -20,3 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if enemy_hc:
 		enemy_hc.take_damage(damage)
 		_destroy()
+	else:
+		_destroy()
