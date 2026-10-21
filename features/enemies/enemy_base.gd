@@ -8,3 +8,5 @@ func _on_health_component_died() -> void:
 
 func _on_health_component_took_damage(damage: float) -> void:
 	$FeelComponent.hit_animation()
+	
+	

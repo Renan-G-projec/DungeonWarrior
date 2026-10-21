@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(8, 8)
 
-[node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon")]
+[node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
 script = ExtResource("1_fcb3x")
 weapon = NodePath("Bow")
 

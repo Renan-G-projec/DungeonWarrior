@@ -32,6 +32,10 @@ project/assembly_name="DungeonWarrior"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 walk_up={
