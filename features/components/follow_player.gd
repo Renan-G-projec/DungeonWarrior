@@ -32,8 +32,9 @@ func _check_player_collison() -> void:
 		
 		if collision.get_collider() == player:
 			var player_health := player.get_node_or_null("HealthComponent") as HealthComponent
-			player_health.take_damage(10)
+			player_health.take_damage(10, player.global_position)
 			print("Player got hit")
+		
 			
 
 			

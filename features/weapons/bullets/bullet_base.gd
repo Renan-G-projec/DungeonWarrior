@@ -18,7 +18,7 @@ func _destroy() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	var enemy_hc := body.get_node_or_null("HealthComponent") as HealthComponent
 	if enemy_hc:
-		enemy_hc.take_damage(damage)
+		enemy_hc.take_damage(damage, global_position)
 		_destroy()
 	else:
 		_destroy()

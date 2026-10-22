@@ -3,6 +3,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var speed: float = 32.0
+@onready var knockback: Knockback = $Knockback
 @export var weapon: WeaponBase
 var is_invincible: bool = false
 
@@ -13,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	_update_velocity()
 	_update_sprite()
 	_update_position()
+	
 
 func _update_inputs() -> void:
 	_input_direction.x = Input.get_axis("walk_left", "walk_right")
@@ -22,6 +24,8 @@ func _update_inputs() -> void:
 		weapon.attack()
 
 func _update_velocity() -> void:
+	if knockback.knockback_timer > 0.0:
+		return 
 	var direction_to_go: Vector2 = _input_direction.normalized()
 	velocity = direction_to_go * speed
 

@@ -2,6 +2,8 @@
 class_name HealthComponent
 extends Node
 
+@onready var character = get_parent()
+
 @export var max_life: float = 100.0:
 	set(new_max_life):
 		assert(new_max_life > 0.0, "Error: Max life cannot be under zero.")
@@ -23,12 +25,13 @@ extends Node
 
 @export var has_iframes: bool = false
 @export var iframe_duration: float = 0.5
+
 var is_invincible: bool = false
 var iframe_timer: Timer 
 
 signal max_life_changed(new_max_life: float)
 signal life_changed(new_life: float)
-signal took_damage(damage: float)
+signal took_damage(character: Node, damage: float, source_position: Vector2)
 signal died()
 signal iframe_started()
 signal iframe_ended()
@@ -47,12 +50,13 @@ func _on_iframe_timeout() -> void:
 	iframe_ended.emit()
 
 
-func take_damage(damage: float) -> void:
+func take_damage(damage: float, attacker: Node2D) -> void:
 	if has_iframes and is_invincible:
 		return
-	
+
 	life -= damage
-	took_damage.emit(damage)
+	var source_postiton: Vector2 = attacker.global_position
+	took_damage.emit(character, damage, source_postiton)
 	
 	if has_iframes and life > 0.0 and iframe_duration > 0.0:
 		print("invincible period has started")
