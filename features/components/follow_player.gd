@@ -24,3 +24,15 @@ func _physics_process(delta: float) -> void:
 		body.velocity = Vector2.ZERO
 		
 	body.move_and_slide()
+	_check_player_collison()
+	
+func _check_player_collison() -> void:
+	for i in body.get_slide_collision_count():
+		var collision: KinematicCollision2D = body.get_slide_collision(i)
+		
+		if collision.get_collider() == player:
+			var player_health := player.get_node_or_null("HealthComponent") as HealthComponent
+			player_health.take_damage(10)
+			print("Player got hit")
+			
+			

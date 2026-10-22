@@ -10,6 +10,7 @@
 size = Vector2(8, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_fcb3x")
 weapon = NodePath("Bow")
 
