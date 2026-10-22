@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_d1p6d")
 script = ExtResource("3_emvbc")
 max_life = 80.0
 life = 80.0
+has_iframes = true
 metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]

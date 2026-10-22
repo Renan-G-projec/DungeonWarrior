@@ -21,14 +21,44 @@ extends Node
 		life = clamp(new_life, 0.0, max_life)
 		life_changed.emit(life)
 
+@export var has_iframes: bool = false
+@export var iframe_duration: float = 0.5
+var is_invincible: bool = false
+var iframe_timer: Timer 
+
 signal max_life_changed(new_max_life: float)
 signal life_changed(new_life: float)
 signal took_damage(damage: float)
 signal died()
+signal iframe_started()
+signal iframe_ended()
+
+func _ready() -> void:
+	if has_iframes == true:
+		iframe_timer = Timer.new()
+		iframe_timer.one_shot = true
+		iframe_timer.wait_time = iframe_duration
+		iframe_timer.timeout.connect(_on_iframe_timeout)
+		add_child(iframe_timer)
+		
+func _on_iframe_timeout() -> void:
+	print("invincible period has ended")
+	is_invincible = false
+	iframe_ended.emit()
+
 
 func take_damage(damage: float) -> void:
+	if has_iframes and is_invincible:
+		return
+	
 	life -= damage
 	took_damage.emit(damage)
+	
+	if has_iframes and life > 0.0 and iframe_duration > 0.0:
+		print("invincible period has started")
+		is_invincible = true
+		iframe_timer.start()
+		iframe_started.emit()
 
 func die() -> void:
 	life = -1.0

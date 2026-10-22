@@ -35,4 +35,6 @@ func _check_player_collison() -> void:
 			player_health.take_damage(10)
 			print("Player got hit")
 			
+
+			
 			

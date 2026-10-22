@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var speed: float = 32.0
 @export var weapon: WeaponBase
+var is_invincible: bool = false
 
 var _input_direction: Vector2
 
