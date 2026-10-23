@@ -6,7 +6,6 @@ extends Node
 var player: Player
 
 @onready var body: CharacterBody2D = get_parent()
-
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as Player
 

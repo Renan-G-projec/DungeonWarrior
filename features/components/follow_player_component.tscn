@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4pebvhsq3u1n"]
+
+[ext_resource type="Script" uid="uid://di8mwn2k6d7mm" path="res://features/components/follow_player_component.gd" id="1_lt6iq"]
+
+[node name="FollowPlayerComponent" type="Node" unique_id=1624101257]
+script = ExtResource("1_lt6iq")
