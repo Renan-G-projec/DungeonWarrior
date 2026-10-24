@@ -10,6 +10,7 @@ signal player_interacted()
 
 func _process(delta: float) -> void:
 	if !Input.is_action_just_pressed("Interact"): return
+	if !has_overlapping_bodies(): return
 	var player: Player = get_overlapping_bodies()[0] as Player
 	
 	assert(player != null, "Error: another object is in the player layer and the player tryed to interact with the door.")

@@ -35,6 +35,8 @@ func attack() -> void:
 	instantiated_bullet.velocity = _to_mouse().normalized() * bullet_velocity
 	instantiated_bullet.global_position = %BulletSpawn.global_position
 	instantiated_bullet.global_rotation = global_rotation
+	instantiated_bullet.scale = Vector2(1.4, 0.6)
+	instantiated_bullet.create_tween().tween_property(instantiated_bullet, "scale", Vector2.ONE, min(0.4, 0.01 * bullet_velocity)).set_trans(Tween.TRANS_QUAD)
 	
 	_is_on_cooldown = true
 	ammo -= 1

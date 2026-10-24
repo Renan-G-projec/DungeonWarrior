@@ -13,6 +13,7 @@ size = Vector2(10, 10)
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=651179315]
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_b8rtt")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1142973533]

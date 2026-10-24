@@ -23,6 +23,9 @@ texture = ExtResource("1_sjcu7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=82784212]
 shape = SubResource("RectangleShape2D_d1p6d")
 
+[node name="Bow" parent="." unique_id=148830378 instance=ExtResource("5_6xbq4")]
+position = Vector2(6, 0)
+
 [node name="HealthComponent" type="Node" parent="." unique_id=937912766]
 script = ExtResource("3_emvbc")
 max_life = 80.0
@@ -30,16 +33,13 @@ life = 80.0
 has_iframes = true
 metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 
+[node name="Knockback" type="Node" parent="." unique_id=281451004]
+script = ExtResource("6_y2cyt")
+
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]
 offset_top = 9.0
 offset_bottom = 9.0
 bind_health_component = NodePath("../HealthComponent")
-
-[node name="Bow" parent="." unique_id=148830378 instance=ExtResource("5_6xbq4")]
-position = Vector2(6, 0)
-
-[node name="Knockback" type="Node" parent="." unique_id=281451004]
-script = ExtResource("6_y2cyt")
 
 [connection signal="ammo_changed" from="Bow" to="." method="_on_bow_ammo_changed"]
 [connection signal="started_recharging" from="Bow" to="." method="_on_bow_started_recharging"]
