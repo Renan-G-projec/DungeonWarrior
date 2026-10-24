@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_emvbc"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_i250s"]
 [ext_resource type="PackedScene" uid="uid://ekpvivw2k8ru" path="res://features/weapons/weapons/bow.tscn" id="5_6xbq4"]
+[ext_resource type="PackedScene" uid="uid://dfi2lifuc76ex" path="res://features/components/dash_component.tscn" id="5_7mbft"]
+[ext_resource type="PackedScene" uid="uid://c5b6ojyuw0kgk" path="res://features/weapons/weapons/feel_component.tscn" id="6_kt1oa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_y2cyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
@@ -32,6 +34,11 @@ max_life = 80.0
 life = 80.0
 has_iframes = true
 metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
+
+[node name="DashComponent" parent="." unique_id=1232598878 instance=ExtResource("5_7mbft")]
+unique_name_in_owner = true
+
+[node name="FeelComponent" parent="." unique_id=1876112967 instance=ExtResource("6_kt1oa")]
 
 [node name="Knockback" type="Node" parent="." unique_id=281451004]
 script = ExtResource("6_y2cyt")
