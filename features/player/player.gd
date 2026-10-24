@@ -43,6 +43,10 @@ func _update_position() -> void:
 	move_and_slide()
 
 func _update_sprite() -> void:
+	if _input_direction:
+		$Sprite2D.play("run")
+	else:
+		$Sprite2D.play("default")
 	if _input_direction.x < 0.0:
 		$Sprite2D.flip_h = true
 	elif _input_direction.x > 0.0:
@@ -54,3 +58,4 @@ func _on_bow_ammo_changed(new_ammo: int) -> void:
 
 func _get_mouse_direction() -> Vector2:
 	return (get_global_mouse_position() - global_position).normalized()
+	
