@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bh4pew5jyh1mq"]
+
+[ext_resource type="Script" uid="uid://biwpn4cmcgd3v" path="res://features/map/door.gd" id="1_urb8f"]
+[ext_resource type="Texture2D" uid="uid://dtkmekwaydl6l" path="res://features/map/tileset.png" id="1_ya1gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
+size = Vector2(24, 24)
+
+[node name="Door" type="Area2D" unique_id=1475764445]
+script = ExtResource("1_urb8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1729819053]
+texture = ExtResource("1_ya1gw")
+region_enabled = true
+region_rect = Rect2(56, 56, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=697368537]
+shape = SubResource("RectangleShape2D_d1p6d")

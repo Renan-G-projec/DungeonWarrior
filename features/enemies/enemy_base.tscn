@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="2_valvq"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="3_b8rtt"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_xsgr6"]
-[ext_resource type="Script" uid="uid://di8mwn2k6d7mm" path="res://features/components/follow_player.gd" id="6_v3xjv"]
+[ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="6_v3xjv"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="7_xxw78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
@@ -38,8 +38,7 @@ offset_top = 6.0
 offset_bottom = 6.0
 bind_health_component = NodePath("../HealthComponent")
 
-[node name="FollowPlayer" type="Node" parent="." unique_id=351703223]
-script = ExtResource("6_v3xjv")
+[node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("6_v3xjv")]
 
 [node name="Knockback" type="Node" parent="." unique_id=857757227]
 script = ExtResource("7_xxw78")

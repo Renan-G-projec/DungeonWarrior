@@ -11,7 +11,7 @@
 size = Vector2(8, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_fcb3x")
 weapon = NodePath("Bow")
 
@@ -40,7 +40,6 @@ position = Vector2(6, 0)
 
 [node name="Knockback" type="Node" parent="." unique_id=281451004]
 script = ExtResource("6_y2cyt")
-friction = 100.0
 
 [connection signal="ammo_changed" from="Bow" to="." method="_on_bow_ammo_changed"]
 [connection signal="started_recharging" from="Bow" to="." method="_on_bow_started_recharging"]
