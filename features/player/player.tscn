@@ -122,10 +122,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(8, 2)
 
-[node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2017001837 groups=["player"]]
 collision_mask = 19
 script = ExtResource("1_fcb3x")
-weapon = NodePath("")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=535856669]
 position = Vector2(0, -5)
