@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cwy77uvnadex"]
+
+[ext_resource type="Script" uid="uid://dab44aylutv52" path="res://features/chest/chest.gd" id="1_njc3y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d1p6d"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buoi2"]
+size = Vector2(28, 28)
+
+[node name="Chest" type="StaticBody2D" unique_id=293850047]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_njc3y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=579084523]
+texture = SubResource("PlaceholderTexture2D_d1p6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102221185]
+shape = SubResource("RectangleShape2D_d1p6d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=980994369]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=522863717]
+shape = SubResource("RectangleShape2D_buoi2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
