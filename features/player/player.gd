@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var speed: float = 32.0
 @onready var knockback: Knockback = $Knockback
 @export var weapon: WeaponBase
-var is_invincible: bool = false
+
 
 var _input_direction: Vector2
 
@@ -24,10 +24,11 @@ func _update_inputs() -> void:
 		weapon.attack()
 
 func _update_velocity() -> void:
-	if knockback.knockback_timer > 0.0:
-		return 
-	var direction_to_go: Vector2 = _input_direction.normalized()
-	velocity = direction_to_go * speed
+	if knockback.is_active():
+		print("4. player knocked back, velocity=", velocity)
+		velocity = knockback.knockback_velocity
+		return
+	velocity = _input_direction.normalized() * speed
 
 func _update_position() -> void:
 	move_and_slide()

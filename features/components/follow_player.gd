@@ -30,9 +30,11 @@ func _physics_process(delta: float) -> void:
 	_check_player_collison()
 	
 func _check_player_collison() -> void:
+	
 	for i in body.get_slide_collision_count():
 		var collision: KinematicCollision2D = body.get_slide_collision(i)
 		if collision.get_collider() == player:
+			print("1. enemy touching player. health found: ", player.get_node_or_null("HealthComponent") != null)
 			var player_health := player.get_node_or_null("HealthComponent") as HealthComponent
 			if player_health:
 				player_health.take_damage(10, body)

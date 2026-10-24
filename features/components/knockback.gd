@@ -20,9 +20,9 @@ func _ready() -> void:
 
 func is_active() -> bool:
 	return knockback_timer > 0.0
-
 		
 func apply_knockback(source_position: Vector2, force: float = -1.0, duration: float = -1.0) -> void:
+	print("3. apply_knockback on ", character.name if character else "NULL", " from ", source_position)
 	print("apply_knockback from ", source_position)
 	if not character:
 		return
@@ -47,4 +47,5 @@ func _physics_process(delta: float) -> void:
 		
 
 func _on_took_damage(entity: Node, damage: float, source_position: Vector2) -> void:
+	print("Entity: ", entity)
 	apply_knockback(source_position, default_force, default_duration)

@@ -51,6 +51,7 @@ func _on_iframe_timeout() -> void:
 
 
 func take_damage(damage: float, attacker: Node2D) -> void:
+	print("2. take_damage on ", character.name, " invincible=", is_invincible, " life=", life)
 	if has_iframes and is_invincible:
 		return
 

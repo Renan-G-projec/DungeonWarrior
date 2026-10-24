@@ -40,6 +40,7 @@ position = Vector2(6, 0)
 
 [node name="Knockback" type="Node" parent="." unique_id=281451004]
 script = ExtResource("6_y2cyt")
+friction = 100.0
 
 [connection signal="ammo_changed" from="Bow" to="." method="_on_bow_ammo_changed"]
 [connection signal="started_recharging" from="Bow" to="." method="_on_bow_started_recharging"]
