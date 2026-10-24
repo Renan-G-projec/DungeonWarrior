@@ -16,9 +16,7 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	var enemy_hc := body.get_node_or_null("HealthComponent") as HealthComponent
-	if enemy_hc:
-		enemy_hc.take_damage(damage, global_position)
-		_destroy()
-	else:
-		_destroy()
+	var health := body.get_node_or_null("HealthComponent") as HealthComponent
+	if health:
+		health.take_damage(damage, self)
+	_destroy()
