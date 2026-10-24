@@ -34,7 +34,7 @@ func apply_knockback(source_position: Vector2, force: float = -1.0, duration: fl
 	var direction := source_position.direction_to(character.global_position)
 	if direction == Vector2.ZERO:
 		direction = Vector2.RIGHT
-		
+	print("source: ", source_position, " | character: ", character.global_position, " | dir: ", direction)	
 	knockback_velocity = direction * (force / maxf(knockback_resistance, 0.01))
 	knockback_timer = duration
 

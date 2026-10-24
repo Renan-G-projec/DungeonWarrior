@@ -25,21 +25,21 @@ func _physics_process(_delta: float) -> void:
 	
 	pause_time = max(pause_time-_delta, 0.0)
 	cooldown_time = max(pause_time-_delta, 0.0)
-	
-	if knockback and knockback.is_active():
-		body.velocity = knockback.knockback_velocity
-	elif pause_time > 0.0:
-		body.velocity = Vector2.ZERO
-	elif player:
-		var distance: float = body.global_position.distance_to(player.global_position)
-		if distance > stop_distance:
-			body.velocity = body.global_position.direction_to(player.global_position) * speed
+	if body.visible:
+		if knockback and knockback.is_active():
+			body.velocity = knockback.knockback_velocity
+		elif pause_time > 0.0:
+			body.velocity = Vector2.ZERO
+		elif player:
+			var distance: float = body.global_position.distance_to(player.global_position)
+			if distance > stop_distance:
+				body.velocity = body.global_position.direction_to(player.global_position) * speed
+			else:
+				body.velocity = Vector2.ZERO
 		else:
 			body.velocity = Vector2.ZERO
-	else:
-		body.velocity = Vector2.ZERO
 
-	body.move_and_slide()
+		body.move_and_slide()
 	_check_player_collision()
 
 func _check_player_collision() -> void:

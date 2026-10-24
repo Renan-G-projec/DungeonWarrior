@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d2s327hiepted"]
+
+[ext_resource type="Texture2D" uid="uid://bcs3p5vdech0p" path="res://icon.svg" id="1_bl1kf"]
+[ext_resource type="Script" uid="uid://ukrq6qh1k5om" path="res://features/enemies/boss/boss_base.gd" id="1_c7puh"]
+[ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="2_c7puh"]
+[ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="3_h5uod"]
+[ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_5k3w4"]
+[ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="5_wojv2"]
+[ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_qifik"]
+[ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="7_phto6"]
+[ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="8_w7r7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5uod"]
+
+[node name="boss_base" type="CharacterBody2D" unique_id=1701289693]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_c7puh")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=63306320]
+unique_name_in_owner = true
+position = Vector2(0, -10)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_bl1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086536541]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_h5uod")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=798201242]
+script = ExtResource("2_c7puh")
+metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
+
+[node name="FeelComponent" type="Node" parent="." unique_id=143178344]
+script = ExtResource("3_h5uod")
+metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
+
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_5k3w4")]
+bind_health_component = NodePath("../HealthComponent")
+
+[node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("5_wojv2")]
+speed = 10.0
+damage = 15
+
+[node name="Knockback" type="Node" parent="." unique_id=1167124007]
+script = ExtResource("6_qifik")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1705349887]
+position = Vector2(0, -10)
+
+[node name="ShootComponent" type="Node" parent="." unique_id=1476964520]
+script = ExtResource("7_phto6")
+projectile = ExtResource("8_w7r7b")

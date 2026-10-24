@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 var direction: float
 	
+func _destroy() -> void:
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(direction) * SPEED
@@ -17,8 +19,16 @@ func _ready() -> void:
 	
 func _check_player_collision() -> void:
 	for i in get_slide_collision_count():
-		var body := get_slide_collision(i).get_collider()
-		if body.is_in_group("player"):
-			var player_health := body.get_node_or_null("HealthComponent") as HealthComponent
-			if player_health:
-				player_health.take_damage(damage, body)
+		var collider := get_slide_collision(i).get_collider() 
+		var body := collider as CollisionObject2D
+		
+		print("BODY", body)
+		if body and body.get_collision_layer_value(1):
+			var health := body.get_node_or_null("HealthComponent") as HealthComponent
+			if health:
+				health.take_damage(damage, self)
+
+		queue_free()  
+		return
+
+		
