@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_xsgr6"]
 [ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="6_v3xjv"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="7_xxw78"]
+[ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="8_wj6k8"]
+[ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="9_qqds1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(10, 10)
@@ -42,6 +44,13 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="Knockback" type="Node" parent="." unique_id=857757227]
 script = ExtResource("7_xxw78")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
+
+[node name="Node" type="Node" parent="." unique_id=1450739105 node_paths=PackedStringArray("muzzle")]
+script = ExtResource("8_wj6k8")
+projectile = ExtResource("9_qqds1")
+muzzle = NodePath("../Muzzle")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
