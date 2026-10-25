@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_sh5sn"]
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_be3bm"]
+[ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="3_be3bm"]
 
 [node name="Room1" unique_id=1991131083 instance=ExtResource("1_sh5sn")]
 
 [node name="Door" parent="." index="2" unique_id=1475764445 instance=ExtResource("2_be3bm")]
 position = Vector2(27, 52)
 target_scene = "uid://bkumstfib4vw0"
+
+[node name="Bat" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
+position = Vector2(98, 45)

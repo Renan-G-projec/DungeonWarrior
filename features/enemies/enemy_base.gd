@@ -4,11 +4,12 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
-	GOING_TO_PLAYER
+	GOING_TO_PLAYER,
+	DEAD
 }
 
 const SPEED = 10.0
-
+ 
 @onready var _target_on_radius: bool = %TriggerArea.has_overlapping_bodies()
 @onready var _target: Node2D = null
 
