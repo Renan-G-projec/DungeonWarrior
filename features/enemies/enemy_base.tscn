@@ -43,7 +43,7 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("6_v3xjv")]
 
-[node name="Knockback" type="Node" parent="." unique_id=857757227]
+[node name="KnockbackComponent" type="Node" parent="." unique_id=857757227]
 script = ExtResource("7_xxw78")
 
 [node name="ShootComponent" type="Node" parent="." unique_id=1450739105 node_paths=PackedStringArray("muzzle")]

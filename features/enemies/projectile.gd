@@ -17,10 +17,13 @@ func _ready() -> void:
 	queue_free()
 	
 func _check_player_collision() -> void:
-	for i in get_slide_collision_count():
-		var body := get_slide_collision(i).get_collider()
-		if body.is_in_group("player"):
+	if get_slide_collision_count() > 0:
+		var body := get_slide_collision(0).get_collider()
+		if body is Player:
 			var player_health := body.get_node_or_null("HealthComponent") as HealthComponent
 			if player_health:
 				player_health.take_damage(damage, body)
+			var player_knockback := body.get_node_or_null("KnockbackComponent") as KnockbackComponent
+			if player_knockback:
+				player_knockback.apply_knockback(Vector2.RIGHT.rotated(direction), )
 		queue_free()

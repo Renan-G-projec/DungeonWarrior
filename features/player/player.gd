@@ -3,10 +3,10 @@ class_name Player
 extends CharacterBody2D
 
 @onready var speed: float = 32.0
-@onready var knockback: Knockback = $Knockback
+@onready var knockback: KnockbackComponent = $KnockbackComponent
 @onready var dash_component: DashComponent = %DashComponent
-@export var weapon: WeaponBase
 @onready var feel_component: FeelComponent = $FeelComponent
+@export var weapon: WeaponBase
 
 var _input_direction: Vector2
 
@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 	_update_velocity()
 	_update_sprite()
 	_update_position()
-	
 
 func _update_inputs() -> void:
 	_input_direction.x = Input.get_axis("walk_left", "walk_right")
@@ -57,4 +56,7 @@ func _on_bow_ammo_changed(new_ammo: int) -> void:
 
 func _get_mouse_direction() -> Vector2:
 	return (get_global_mouse_position() - global_position).normalized()
-	
+
+func _on_health_component_took_damage(character: Node, damage: float, source_position: Vector2) -> void:
+	%FeelComponent.squash_animation($Sprite2D, Vector2(1.4, 0.6), 0.3)
+	%FeelComponent.hit_animation($Sprite2D, 0.2)
