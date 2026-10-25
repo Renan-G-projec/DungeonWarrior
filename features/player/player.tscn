@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_y2cyt"]
 [ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/components/pull.gd" id="8_kt1oa"]
 [ext_resource type="Script" uid="uid://danny3cwknvce" path="res://features/components/stun_component.gd" id="9_k34i2"]
+[ext_resource type="PackedScene" uid="uid://dn87535agm6jo" path="res://features/weapons/weapons/sword.tscn" id="9_k34i2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k34i2"]
 atlas = ExtResource("2_kt1oa")
@@ -124,9 +125,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(8, 2)
 
-[node name="Player" type="CharacterBody2D" unique_id=2017001837 groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
+y_sort_enabled = true
 collision_mask = 19
 script = ExtResource("1_fcb3x")
+weapon = NodePath("sword")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=535856669]
 position = Vector2(0, -5)
@@ -164,5 +167,6 @@ script = ExtResource("8_kt1oa")
 
 [node name="StunComponent" type="Node" parent="." unique_id=1315810615]
 script = ExtResource("9_k34i2")
+[node name="sword" parent="." unique_id=767143745 instance=ExtResource("9_k34i2")]
 
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]

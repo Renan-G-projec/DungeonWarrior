@@ -39,10 +39,7 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("5_wojv2")]
 speed = 10.0
-stop_distance = null
 damage = 15
-attack_pause = null
-attack_cooldown = null
 
 [node name="Knockback" type="Node" parent="." unique_id=1167124007]
 script = ExtResource("7_c7puh")

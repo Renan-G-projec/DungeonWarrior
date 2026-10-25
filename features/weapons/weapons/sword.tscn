@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dn87535agm6jo"]
+
+[ext_resource type="PackedScene" uid="uid://djyn2wiie4dlu" path="res://features/weapons/melee_weapon.tscn" id="1_1ccve"]
+[ext_resource type="Texture2D" uid="uid://df7vxwnckwvv6" path="res://features/weapons/weapons/sword.png" id="2_gei7s"]
+
+[node name="sword" unique_id=767143745 instance=ExtResource("1_1ccve")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1929118007]
+y_sort_enabled = true
+texture = ExtResource("2_gei7s")
+region_enabled = false
+
+[node name="CollisionShape2D" parent="HitArea" parent_id_path=PackedInt32Array(943885503) index="0" unique_id=1250292231]
+position = Vector2(12, 0)
