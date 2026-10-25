@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_y2cyt"]
 [ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/components/pull.gd" id="8_kt1oa"]
 [ext_resource type="Script" uid="uid://danny3cwknvce" path="res://features/components/stun_component.gd" id="9_k34i2"]
-[ext_resource type="PackedScene" uid="uid://dn87535agm6jo" path="res://features/weapons/weapons/sword.tscn" id="9_k34i2"]
+[ext_resource type="PackedScene" uid="uid://dn87535agm6jo" path="res://features/weapons/weapons/sword.tscn" id="10_47rrt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k34i2"]
 atlas = ExtResource("2_kt1oa")
@@ -167,6 +167,7 @@ script = ExtResource("8_kt1oa")
 
 [node name="StunComponent" type="Node" parent="." unique_id=1315810615]
 script = ExtResource("9_k34i2")
-[node name="sword" parent="." unique_id=767143745 instance=ExtResource("9_k34i2")]
+
+[node name="sword" parent="." unique_id=767143745 instance=ExtResource("10_47rrt")]
 
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
