@@ -172,14 +172,15 @@ shape = SubResource("CircleShape2D_d1p6d")
 
 [node name="VisionToPlayer" type="RayCast2D" parent="." unique_id=627185894]
 unique_name_in_owner = true
-collision_mask = 16
+collision_mask = 4
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1702035286]
 unique_name_in_owner = true
-position = Vector2(-1, -2)
+position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_jp3dx")
 animation = &"idle"
 autoplay = "run"
+offset = Vector2(-1, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216348714]
 shape = SubResource("RectangleShape2D_d1p6d")

@@ -4,14 +4,14 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
-	GOING_TO_PLAYER,
-	CONFUSED
+	GOING_TO_PLAYER
 }
 
-const SPEED = 100.0
+const SPEED = 10.0
 
 @onready var _target_on_radius: bool = %TriggerArea.has_overlapping_bodies()
 @onready var _target: Node2D = null
+
 
 var _state: State = State.IDLE
 
@@ -20,14 +20,19 @@ func _physics_process(delta: float) -> void:
 		%VisionToPlayer.target_position = to_local(_target.global_position)
 		
 		# The raycast should collide only with the walls. So if a collision happens its not seeing
-		if %VisionToPlayer.collide_with_bodies:
-			_state = State.CONFUSED
+		if %VisionToPlayer.is_colliding():
 			velocity = Vector2.ZERO
+			%Sprite.play("idle")
+		else:
+			_state = State.GOING_TO_PLAYER
 	
 	match _state:
 		State.GOING_TO_PLAYER:
 			if !_target || !_target_on_radius: return
 			var direction: Vector2 = (_target.global_position - global_position).normalized()
+			%Sprite.flip_h = direction.x < 0
+			%Sprite.play("run")
+			
 			velocity = direction * SPEED
 	
 	move_and_slide()
@@ -50,7 +55,8 @@ func _on_trigger_area_body_entered(body: Node2D) -> void:
 
 
 func _on_trigger_area_body_exited(body: Node2D) -> void:
-	_state = State.CONFUSED
+	velocity = Vector2.ZERO
+	%Sprite.play("idle")
 	if body == _target:
 		_target_on_radius = false
 		_target = null
