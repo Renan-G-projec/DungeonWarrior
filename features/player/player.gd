@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var dash_component: DashComponent = %DashComponent
 @onready var feel_component: FeelComponent = $FeelComponent
 @onready var pull: Pull = $Pull
+@onready var stun_component: StunComponent = $StunComponent
 
 @export var weapon: WeaponBase
 
@@ -24,6 +25,10 @@ func _update_inputs() -> void:
 	_input_direction.x = Input.get_axis("walk_left", "walk_right")
 	_input_direction.y = Input.get_axis("walk_up", "walk_down")
 
+	if stun_component.is_stunned():
+		_input_direction = Vector2.ZERO
+		return
+	
 	if Input.is_action_just_pressed("attack") and weapon:
 		weapon.attack()
 
@@ -33,7 +38,9 @@ func _update_inputs() -> void:
 
 
 func _update_velocity() -> void:
-	if pull.is_active():
+	if stun_component.is_stunned():
+		velocity = Vector2.ZERO
+	elif pull.is_active():
 		velocity = pull.pull_velocity
 	elif knockback.is_active():
 		print("4. player knocked back, velocity=", velocity)
