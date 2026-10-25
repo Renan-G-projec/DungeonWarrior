@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cxf1tuwwkhemw" path="res://features/enemies/base_enemy.png" id="2_wj6k8"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="3_b8rtt"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_xsgr6"]
-[ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="6_v3xjv"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="7_xxw78"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="8_wj6k8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1p6d"]
+radius = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj6k8"]
 atlas = ExtResource("2_wj6k8")
@@ -162,6 +164,16 @@ collision_layer = 2
 collision_mask = 49
 script = ExtResource("1_b8rtt")
 
+[node name="TriggerArea" type="Area2D" parent="." unique_id=1655906864]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1136076360]
+shape = SubResource("CircleShape2D_d1p6d")
+
+[node name="VisionToPlayer" type="RayCast2D" parent="." unique_id=627185894]
+unique_name_in_owner = true
+collision_mask = 16
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1702035286]
 unique_name_in_owner = true
 position = Vector2(-1, -2)
@@ -171,6 +183,8 @@ autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216348714]
 shape = SubResource("RectangleShape2D_d1p6d")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1190549742]
 script = ExtResource("2_valvq")
@@ -182,13 +196,6 @@ metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 script = ExtResource("4_xsgr6")
 metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
 
-[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("3_b8rtt")]
-offset_top = 6.0
-offset_bottom = 6.0
-bind_health_component = NodePath("../HealthComponent")
-
-[node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("6_v3xjv")]
-
 [node name="Knockback" type="Node" parent="." unique_id=857757227]
 script = ExtResource("7_xxw78")
 
@@ -196,7 +203,13 @@ script = ExtResource("7_xxw78")
 script = ExtResource("8_wj6k8")
 muzzle = NodePath("../Muzzle")
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("3_b8rtt")]
+offset_top = 6.0
+offset_bottom = 6.0
+bind_health_component = NodePath("../HealthComponent")
 
+[connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
