@@ -16,6 +16,7 @@ region_enabled = true
 region_rect = Rect2(10, 10, 8, 8)
 
 [node name="HitArea" type="Area2D" parent="." unique_id=943885503]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 3
 
