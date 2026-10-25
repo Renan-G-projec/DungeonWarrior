@@ -169,5 +169,6 @@ script = ExtResource("8_kt1oa")
 script = ExtResource("9_47rrt")
 
 [node name="sword" parent="." unique_id=767143745 instance=ExtResource("9_k34i2")]
+position = Vector2(0, -3)
 
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]

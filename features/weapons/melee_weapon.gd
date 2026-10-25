@@ -4,7 +4,7 @@ extends WeaponBase
 
 @export var damage: float = 7.0
 @export var animation_range: float = 40.0
-@export var animation_velocity: float = 0.1
+@export var animation_velocity: float = 0.15
 
 var _is_attacking: bool = false
 
@@ -12,14 +12,11 @@ func attack() -> void:
 	if _is_attacking: return
 	_is_attacking = true
 	
-	rotation_degrees -= animation_range
 	var _sprite_tween := create_tween()
+	_sprite_tween.tween_property(self, "rotation_degrees", rotation_degrees - animation_range, animation_velocity * 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
 	_sprite_tween.tween_property(self, "rotation_degrees", rotation_degrees + 2 * animation_range, animation_velocity).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	
-	var _scale_tween := create_tween()
-	_scale_tween.tween_property($Sprite2D, "scale", Vector2(0.4, 1.6), animation_velocity / 2).set_trans(Tween.TRANS_QUAD)
-	_scale_tween.tween_property($Sprite2D, "scale", Vector2.ONE, animation_velocity / 2).set_trans(Tween.TRANS_QUAD)
-
 	for body in %HitArea.get_overlapping_bodies():
 		%HitArea.body_entered.emit(body)
 
