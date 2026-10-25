@@ -17,6 +17,12 @@ current_room = NodePath("Room1")
 
 [node name="Room1" parent="." unique_id=1991131083 instance=ExtResource("2_jyhfs")]
 
+[node name="Chest" parent="." unique_id=293850047 instance=ExtResource("5_tbgi4")]
+position = Vector2(81, 50)
+
+[node name="Bow" parent="Chest" unique_id=148830378 instance=ExtResource("6_tefeu")]
+position = Vector2(-73, 55)
+
 [node name="Player" parent="." unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true
 position = Vector2(27, 31)

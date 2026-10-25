@@ -14,7 +14,7 @@ size = Vector2(10, 10)
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=651179315]
 collision_layer = 2
-collision_mask = 17
+collision_mask = 49
 script = ExtResource("1_b8rtt")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1142973533]
@@ -41,20 +41,15 @@ offset_bottom = 6.0
 bind_health_component = NodePath("../HealthComponent")
 
 [node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("6_v3xjv")]
-speed = null
-stop_distance = null
-damage = null
-attack_pause = null
-attack_cooldown = null
 
 [node name="Knockback" type="Node" parent="." unique_id=857757227]
 script = ExtResource("7_xxw78")
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
-
 [node name="ShootComponent" type="Node" parent="." unique_id=1450739105 node_paths=PackedStringArray("muzzle")]
 script = ExtResource("8_wj6k8")
 muzzle = NodePath("../Muzzle")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]

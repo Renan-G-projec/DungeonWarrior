@@ -148,8 +148,9 @@ metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 unique_name_in_owner = true
 
 [node name="FeelComponent" parent="." unique_id=1876112967 instance=ExtResource("6_kt1oa")]
+unique_name_in_owner = true
 
-[node name="Knockback" type="Node" parent="." unique_id=281451004]
+[node name="KnockbackComponent" type="Node" parent="." unique_id=281451004]
 script = ExtResource("6_y2cyt")
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]
@@ -159,3 +160,4 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="Pull" type="Node" parent="." unique_id=1180060364]
 script = ExtResource("8_kt1oa")
+[connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
