@@ -3,6 +3,7 @@ class_name Main
 extends Node2D
 
 @onready var player: Player = %Player
+
 @export var current_room: Room:
 	set(room):
 		if current_room:

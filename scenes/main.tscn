@@ -22,7 +22,6 @@ unique_name_in_owner = true
 position = Vector2(27, 31)
 
 [node name="EnemyBase" parent="." unique_id=651179315 instance=ExtResource("3_sugp2")]
-visible = false
 position = Vector2(121, 32)
 
 [node name="BossBase" parent="." unique_id=1701289693 instance=ExtResource("5_o6xl0")]

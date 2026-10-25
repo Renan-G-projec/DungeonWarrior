@@ -1,5 +1,6 @@
-class_name Knockback
+class_name KnockbackEmemy
 extends Node
+
 
 @export var default_force: float = 250
 @export var default_duration: float = 0.2

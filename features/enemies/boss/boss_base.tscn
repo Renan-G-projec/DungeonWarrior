@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="3_h5uod"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_5k3w4"]
 [ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="5_wojv2"]
-[ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_qifik"]
+[ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/enemies/boss/knockback_boss.gd" id="7_c7puh"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="7_phto6"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="8_w7r7b"]
 
@@ -43,11 +43,12 @@ speed = 10.0
 damage = 15
 
 [node name="Knockback" type="Node" parent="." unique_id=1167124007]
-script = ExtResource("6_qifik")
+script = ExtResource("7_c7puh")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1705349887]
 position = Vector2(0, -10)
 
-[node name="ShootComponent" type="Node" parent="." unique_id=1476964520]
+[node name="ShootComponent" type="Node" parent="." unique_id=1476964520 node_paths=PackedStringArray("muzzle")]
 script = ExtResource("7_phto6")
 projectile = ExtResource("8_w7r7b")
+muzzle = NodePath("../Muzzle")
