@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_6mfjl"]
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_rufo4"]
+[ext_resource type="PackedScene" uid="uid://cwy77uvnadex" path="res://features/chest/chest.tscn" id="3_8jiyq"]
+[ext_resource type="PackedScene" uid="uid://ekpvivw2k8ru" path="res://features/weapons/weapons/bow.tscn" id="4_tmhal"]
 
 [node name="Room3" unique_id=1991131083 instance=ExtResource("1_6mfjl")]
 
@@ -20,3 +22,9 @@ target_door_id = 1
 position = Vector2(24, 65)
 id = 1
 target_scene = "uid://bjia6f6qpda88"
+
+[node name="Chest" parent="Door2" index="2" unique_id=293850047 instance=ExtResource("3_8jiyq")]
+position = Vector2(56, -11)
+
+[node name="Bow" parent="Door2/Chest" index="3" unique_id=148830378 instance=ExtResource("4_tmhal")]
+position = Vector2(-73, 55)
