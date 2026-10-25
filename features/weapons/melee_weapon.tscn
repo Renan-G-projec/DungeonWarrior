@@ -16,7 +16,11 @@ region_enabled = true
 region_rect = Rect2(10, 10, 8, 8)
 
 [node name="HitArea" type="Area2D" parent="." unique_id=943885503]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1250292231]
 position = Vector2(13.5, 0)
 shape = SubResource("RectangleShape2D_d1p6d")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
