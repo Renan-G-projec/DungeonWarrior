@@ -20,6 +20,9 @@ func attack() -> void:
 	_scale_tween.tween_property($Sprite2D, "scale", Vector2(0.4, 1.6), animation_velocity / 2).set_trans(Tween.TRANS_QUAD)
 	_scale_tween.tween_property($Sprite2D, "scale", Vector2.ONE, animation_velocity / 2).set_trans(Tween.TRANS_QUAD)
 
+	for body in %HitArea.get_overlapping_bodies():
+		%HitArea.body_entered.emit(body)
+
 	await _sprite_tween.finished
 	_is_attacking = false
 

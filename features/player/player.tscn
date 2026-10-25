@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5b6ojyuw0kgk" path="res://features/components/feel_component.tscn" id="6_kt1oa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_y2cyt"]
 [ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/components/pull.gd" id="8_kt1oa"]
+
 [ext_resource type="Script" uid="uid://danny3cwknvce" path="res://features/components/stun_component.gd" id="9_k34i2"]
 [ext_resource type="PackedScene" uid="uid://dn87535agm6jo" path="res://features/weapons/weapons/sword.tscn" id="10_47rrt"]
 
