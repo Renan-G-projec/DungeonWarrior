@@ -8,3 +8,8 @@
 [node name="Door" parent="." index="2" unique_id=1475764445 instance=ExtResource("2_ked8u")]
 position = Vector2(77, 81)
 target_scene = "uid://hbugebch8c06"
+
+[node name="Door2" parent="." index="3" unique_id=2020226135 instance=ExtResource("2_ked8u")]
+position = Vector2(21, 45)
+id = 1
+target_scene = "uid://bvodqriqoe44w"
