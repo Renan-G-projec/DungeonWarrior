@@ -3,10 +3,11 @@ class_name Player
 extends CharacterBody2D
 
 @onready var speed: float = 32.0
-@onready var knockback: KnockbackEmemy = $Knockback
+@onready var knockback: Knockback = $Knockback
 @onready var dash_component: DashComponent = %DashComponent
 @export var weapon: WeaponBase
 @onready var feel_component: FeelComponent = $FeelComponent
+@onready var pull: Pull = $Pull
 
 var _input_direction: Vector2
 
@@ -28,7 +29,9 @@ func _update_inputs() -> void:
 		feel_component._squash_animation($Sprite2D, $Sprite2D.scale * 0.9)
 
 func _update_velocity() -> void:
-	if knockback.is_active():
+	if pull.is_active():
+		velocity = pull.pull_velocity
+	elif knockback.is_active():
 		print("4. player knocked back, velocity=", velocity)
 		velocity = knockback.knockback_velocity
 		return

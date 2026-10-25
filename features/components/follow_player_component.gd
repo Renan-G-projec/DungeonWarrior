@@ -12,7 +12,7 @@ var pause_time: float = 0.0
 var cooldown_time: float = 0.0
 
 @onready var body: CharacterBody2D = get_parent()
-@onready var knockback: KnockbackEmemy = body.get_node_or_null("Knockback") as Knockback
+@onready var knockback: Knockback = body.get_node_or_null("Knockback") as Knockback
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as Player
@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 	
 	pause_time = max(pause_time-_delta, 0.0)
 	cooldown_time = max(pause_time-_delta, 0.0)
-	if body.visible:
+	if body.visible: 
 		if knockback and knockback.is_active():
 			body.velocity = knockback.knockback_velocity
 		elif pause_time > 0.0:

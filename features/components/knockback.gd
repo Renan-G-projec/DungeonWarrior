@@ -1,4 +1,4 @@
-class_name KnockbackEmemy
+class_name Knockback
 extends Node
 
 

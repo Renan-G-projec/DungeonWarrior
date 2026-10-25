@@ -6,13 +6,12 @@
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="3_h5uod"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_5k3w4"]
 [ext_resource type="PackedScene" uid="uid://c4pebvhsq3u1n" path="res://features/components/follow_player_component.tscn" id="5_wojv2"]
-[ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/enemies/boss/knockback_boss.gd" id="7_c7puh"]
-[ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="7_phto6"]
-[ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="8_w7r7b"]
+[ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/components/pull.gd" id="7_c7puh"]
+[ext_resource type="Script" uid="uid://dfgn6wj6p7464" path="res://features/enemies/boss/pull_attack.gd" id="8_bl1kf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5uod"]
 
-[node name="boss_base" type="CharacterBody2D" unique_id=1701289693]
+[node name="BossBase" type="CharacterBody2D" unique_id=1701289693]
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_c7puh")
@@ -40,15 +39,16 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("5_wojv2")]
 speed = 10.0
+stop_distance = null
 damage = 15
+attack_pause = null
+attack_cooldown = null
 
 [node name="Knockback" type="Node" parent="." unique_id=1167124007]
 script = ExtResource("7_c7puh")
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=1705349887]
-position = Vector2(0, -10)
-
-[node name="ShootComponent" type="Node" parent="." unique_id=1476964520 node_paths=PackedStringArray("muzzle")]
-script = ExtResource("7_phto6")
-projectile = ExtResource("8_w7r7b")
-muzzle = NodePath("../Muzzle")
+[node name="PullAttack" type="Node" parent="." unique_id=1847025804 node_paths=PackedStringArray("follow")]
+script = ExtResource("8_bl1kf")
+min_range = 30.0
+stop_distance = 20.0
+follow = NodePath("../FollowPlayerComponent")

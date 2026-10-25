@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfi2lifuc76ex" path="res://features/components/dash_component.tscn" id="5_7mbft"]
 [ext_resource type="PackedScene" uid="uid://c5b6ojyuw0kgk" path="res://features/components/feel_component.tscn" id="6_kt1oa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="6_y2cyt"]
+[ext_resource type="Script" uid="uid://c11kjlpyai1ha" path="res://features/components/pull.gd" id="8_kt1oa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k34i2"]
 atlas = ExtResource("2_kt1oa")
@@ -155,3 +156,6 @@ script = ExtResource("6_y2cyt")
 offset_top = 4.0
 offset_bottom = 4.0
 bind_health_component = NodePath("../HealthComponent")
+
+[node name="Pull" type="Node" parent="." unique_id=1180060364]
+script = ExtResource("8_kt1oa")
