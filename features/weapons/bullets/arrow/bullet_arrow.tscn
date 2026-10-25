@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsxik7rm7omd4"]
 
 [ext_resource type="PackedScene" uid="uid://hjqp6neu5qh2" path="res://features/weapons/bullets/bullet_base.tscn" id="1_0sw6j"]
-[ext_resource type="Texture2D" uid="uid://bqct4glwrmc87" path="res://features/weapons/bullets/arrow/Arrow.png" id="2_ahr5o"]
+[ext_resource type="Texture2D" uid="uid://dm1pb6f7gn451" path="res://features/weapons/bullets/arrow/Arrow.png" id="2_ahr5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fqw6"]
 size = Vector2(11, 6)
