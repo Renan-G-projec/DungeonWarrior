@@ -13,7 +13,8 @@ func _physics_process(delta: float) -> void:
 	_check_player_collision()
 	
 func _ready() -> void:
-	get_tree().create_timer(lifetime).timeout.connect(queue_free)
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()
 	
 func _check_player_collision() -> void:
 	for i in get_slide_collision_count():
@@ -22,3 +23,4 @@ func _check_player_collision() -> void:
 			var player_health := body.get_node_or_null("HealthComponent") as HealthComponent
 			if player_health:
 				player_health.take_damage(damage, body)
+		queue_free()

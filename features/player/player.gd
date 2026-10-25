@@ -21,7 +21,7 @@ func _update_inputs() -> void:
 	_input_direction.x = Input.get_axis("walk_left", "walk_right")
 	_input_direction.y = Input.get_axis("walk_up", "walk_down")
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") && weapon:
 		weapon.attack()
 	if Input.is_action_just_pressed("dash"):
 		dash_component.dash(_get_mouse_direction())
