@@ -23,6 +23,9 @@ position = Vector2(81, 50)
 [node name="Bow" parent="Chest" unique_id=148830378 instance=ExtResource("6_tefeu")]
 position = Vector2(-73, 55)
 
+[node name="Bow2" parent="Chest" unique_id=810029051 instance=ExtResource("6_tefeu")]
+position = Vector2(-73, 55)
+
 [node name="Player" parent="." unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true
 position = Vector2(27, 31)
@@ -34,12 +37,6 @@ position = Vector2(121, 32)
 [node name="BossBase" parent="." unique_id=1701289693 instance=ExtResource("5_o6xl0")]
 visible = false
 position = Vector2(52, 77)
-
-[node name="Chest" parent="." unique_id=293850047 instance=ExtResource("5_tbgi4")]
-position = Vector2(81, 50)
-
-[node name="Bow" parent="Chest" unique_id=148830378 instance=ExtResource("6_tefeu")]
-position = Vector2(-73, 55)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=542850170]
 offset_left = 117.0
