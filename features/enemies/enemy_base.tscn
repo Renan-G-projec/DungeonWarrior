@@ -8,9 +8,6 @@
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="7_xxw78"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="8_wj6k8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d1p6d"]
-radius = 40.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj6k8"]
 atlas = ExtResource("2_wj6k8")
 region = Rect2(216, 0, 18, 15)
@@ -104,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s0vx1")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -155,6 +152,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1p6d"]
+radius = 40.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(10, 10)
 
@@ -164,12 +164,6 @@ collision_layer = 2
 collision_mask = 49
 script = ExtResource("1_b8rtt")
 
-[node name="TriggerArea" type="Area2D" parent="." unique_id=1655906864]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1136076360]
-shape = SubResource("CircleShape2D_d1p6d")
-
 [node name="VisionToPlayer" type="RayCast2D" parent="." unique_id=627185894]
 unique_name_in_owner = true
 collision_mask = 4
@@ -178,9 +172,15 @@ collision_mask = 4
 unique_name_in_owner = true
 position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_jp3dx")
-animation = &"idle"
+animation = &"death"
 autoplay = "run"
 offset = Vector2(-1, -7)
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=1655906864]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1136076360]
+shape = SubResource("CircleShape2D_d1p6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216348714]
 shape = SubResource("RectangleShape2D_d1p6d")

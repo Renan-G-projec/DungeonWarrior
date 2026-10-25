@@ -38,10 +38,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_health_component_died() -> void:
+	%Sprite.play("death")
+	
+	# We need to check this otherwise when calling queue free or if the player exits before the animation ends this will change the animation or crash the engine because %Sprite will also be null.
+	%TriggerArea.monitoring = false
+	await %Sprite.animation_finished
 	queue_free()
 
-func _on_health_component_took_damage(damage: float) -> void:
+func _on_health_component_took_damage(_character, _damage: float, _position: Vector2) -> void:
 	$FeelComponent.hit_animation(%Sprite)
+	$FeelComponent.squash_animation(%Sprite, Vector2(1.2, 0.8), 0.3)
 
 func _on_trigger_area_body_entered(body: Node2D) -> void:
 	%VisionToPlayer.target_position = to_local(body.global_position)
@@ -53,8 +59,8 @@ func _on_trigger_area_body_entered(body: Node2D) -> void:
 		_target_on_radius = false
 	_target = player
 
-
 func _on_trigger_area_body_exited(body: Node2D) -> void:
+	_state = State.IDLE
 	velocity = Vector2.ZERO
 	%Sprite.play("idle")
 	if body == _target:
