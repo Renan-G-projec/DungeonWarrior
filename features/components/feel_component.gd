@@ -20,7 +20,7 @@ func hit_animation(sprite: Node2D = null, time: float = 0.1) -> void:
 	_hit_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	_hit_tween.tween_property(sprite, "modulate", Color.WHITE, time)
 
-# If no sprite is provided, changes all the parent scale. USE CAREFULLY W
+# If no sprite is provided, changes all the parent scale. USE CAREFULLY
 func squash_animation(sprite: Node2D = null, squash_scale: Vector2 = Vector2(1.2, 0.8), time: float = 0.1) -> void:
 	if _squash_tween:
 		_squash_tween.kill()

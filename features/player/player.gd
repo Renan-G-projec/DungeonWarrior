@@ -24,7 +24,7 @@ func _update_inputs() -> void:
 		weapon.attack()
 	if Input.is_action_just_pressed("dash"):
 		dash_component.dash(_get_mouse_direction())
-		feel_component._squash_animation($Sprite2D, $Sprite2D.scale * 0.9)
+		feel_component.squash_animation($Sprite2D, $Sprite2D.scale * 0.9)
 
 func _update_velocity() -> void:
 	if knockback.is_active():
