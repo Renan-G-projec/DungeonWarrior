@@ -12,7 +12,6 @@ current_room = NodePath("Room1")
 [node name="Room1" parent="." unique_id=1991131083 instance=ExtResource("2_jyhfs")]
 
 [node name="EnemyBase" parent="Room1" unique_id=651179315 instance=ExtResource("3_sugp2")]
-visible = false
 position = Vector2(121, 32)
 
 [node name="Player" parent="." unique_id=2017001837 instance=ExtResource("2_0wfyh")]
