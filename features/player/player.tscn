@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dn1dfydjjjmu4"]
 
 [ext_resource type="Script" uid="uid://ic078if115q4" path="res://features/player/player.gd" id="1_fcb3x"]
-[ext_resource type="Texture2D" uid="uid://1dsrgo36se0h" path="res://features/player/player.png" id="2_kt1oa"]
+[ext_resource type="Texture2D" uid="uid://0lr55icx3uyu" path="res://features/player/player.png" id="2_kt1oa"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_emvbc"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_i250s"]
 [ext_resource type="PackedScene" uid="uid://dfi2lifuc76ex" path="res://features/components/dash_component.tscn" id="5_7mbft"]
@@ -12,59 +12,79 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k34i2"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(0, 0, 10, 10)
+region = Rect2(0, 168, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47rrt"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(10, 0, 10, 10)
+region = Rect2(0, 182, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqugw"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(20, 0, 10, 10)
+region = Rect2(0, 196, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rlqq"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(30, 0, 10, 10)
+region = Rect2(0, 210, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yptax"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(40, 0, 10, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kt1oa"]
-atlas = ExtResource("2_kt1oa")
-region = Rect2(50, 0, 10, 10)
+region = Rect2(0, 224, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72p1y"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(60, 0, 10, 10)
+region = Rect2(0, 238, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kvd7"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(70, 0, 10, 10)
+region = Rect2(0, 252, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m333p"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(80, 0, 10, 10)
+region = Rect2(0, 0, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ncrl"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(90, 0, 10, 10)
+region = Rect2(0, 14, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m8b1"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(100, 0, 10, 10)
+region = Rect2(0, 28, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhvub"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(110, 0, 10, 10)
+region = Rect2(0, 42, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3ag6"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(120, 0, 10, 10)
+region = Rect2(0, 56, 13, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jec2r"]
 atlas = ExtResource("2_kt1oa")
-region = Rect2(130, 0, 10, 10)
+region = Rect2(0, 70, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrnek"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 84, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5tpd"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 98, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocbvg"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 112, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lna2h"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 126, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftx3j"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 140, 13, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc4qc"]
+atlas = ExtResource("2_kt1oa")
+region = Rect2(0, 154, 13, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d1p6d"]
 animations = [{
@@ -83,21 +103,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yptax")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kt1oa")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_72p1y")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4kvd7")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m333p")
 }, {
@@ -117,6 +134,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_jec2r")
 }],
 "loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrnek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5tpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocbvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lna2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftx3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc4qc")
+}],
+"loop": 1,
 "name": &"run",
 "speed": 10.0
 }]
@@ -124,16 +164,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(8, 2)
 
-[node name="Player" type="CharacterBody2D" unique_id=2017001837 node_paths=PackedStringArray("weapon") groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2017001837 groups=["player"]]
 y_sort_enabled = true
 collision_mask = 19
 script = ExtResource("1_fcb3x")
-weapon = NodePath("")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=535856669]
-position = Vector2(0, -5)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_d1p6d")
-animation = &"run"
+animation = &"death"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=82784212]
@@ -141,6 +180,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_d1p6d")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=937912766]
+unique_name_in_owner = true
 script = ExtResource("3_emvbc")
 max_life = 80.0
 life = 80.0
@@ -167,4 +207,5 @@ script = ExtResource("8_kt1oa")
 [node name="StunComponent" type="Node" parent="." unique_id=1315810615]
 script = ExtResource("9_k34i2")
 
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]

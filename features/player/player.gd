@@ -11,8 +11,8 @@ extends CharacterBody2D
 
 @export var weapon: WeaponBase
 
+signal gameover()
 var _input_direction: Vector2
-
 
 func _physics_process(_delta: float) -> void:
 	_update_inputs()
@@ -62,6 +62,7 @@ func _update_position() -> void:
 
 
 func _update_sprite() -> void:
+	if %HealthComponent.is_dead(): return
 	if _input_direction:
 		$Sprite2D.play("run")
 	else:
@@ -71,6 +72,7 @@ func _update_sprite() -> void:
 		$Sprite2D.flip_h = true
 	elif _input_direction.x > 0.0:
 		$Sprite2D.flip_h = false
+		
 
 
 func _on_bow_ammo_changed(new_ammo: int) -> void:
@@ -88,3 +90,12 @@ func _on_health_component_took_damage(
 ) -> void:
 	%FeelComponent.squash_animation($Sprite2D, Vector2(1.4, 0.6), 0.3)
 	%FeelComponent.hit_animation($Sprite2D, 0.2)
+
+
+func _on_health_component_died() -> void:
+	$Sprite2D.play('death')
+	await $Sprite2D.animation_finished
+	gameover.emit()
+	
+	queue_free()
+	
