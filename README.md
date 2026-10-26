@@ -1,7 +1,17 @@
 # DungeonWarrior
 A simple 8-bit dungeon game made in godot for hackclub thirdspace by 2 people
 
-## About~
+![Screenshot](.github/screenshot.png)
+
+## How to play
+Access the live demo at https://renan-g.itch.io/dungeonwarrior :)
+
+## Input
+- WASD and arrow keys moves the player
+- E interacts
+- Clicking will trigger attack if you have a weapon
+
+## About
 The game is about a little warrior that needs to escape the dungeon where he is. To do that he needs to transit between rooms
 
 ## Mechanics
