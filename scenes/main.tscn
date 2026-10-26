@@ -17,3 +17,5 @@ position = Vector2(121, 32)
 [node name="Player" parent="." unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true
 position = Vector2(27, 31)
+
+[connection signal="gameover" from="Player" to="." method="_on_player_gameover"]

@@ -2,7 +2,7 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var speed: float = 32.0
+@onready var speed: float = 64.0
 @onready var knockback: KnockbackComponent = $KnockbackComponent
 @onready var dash_component: DashComponent = %DashComponent
 @onready var feel_component: FeelComponent = $FeelComponent

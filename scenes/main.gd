@@ -23,3 +23,7 @@ func change_current_room(room: String, door_id: int) -> void:
 	current_room = room_instance
 	
 	player.global_position = room_instance.get_door_position(door_id)
+
+
+func _on_player_gameover() -> void:
+	TransitionManager.flash(func() -> void: get_tree().reload_current_scene.call_deferred())
