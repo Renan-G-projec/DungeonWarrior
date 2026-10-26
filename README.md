@@ -19,9 +19,10 @@ The game have a door system so it can reload the rooms quickly and grab context 
 The game have different types of bullets, and weapons in general. There's a bow and a sword. More will be added.
 We have inteligent enemies with raycasting and state machines! 
 Theres slimes, chests, bats and shadow enemies to fight
+There are a transition manager with a custom callback function
 
 ## Notes:
-The door have not a sprite. It is invisible as we didn't had time to draw a nice sprite to it.
+The door has a placeholder sprite. You can interact with it by pressing E near it!
 
 
 ## How to build
