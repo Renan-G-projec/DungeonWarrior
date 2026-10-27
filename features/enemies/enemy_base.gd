@@ -13,8 +13,9 @@ const SPEED = 10.0
 @onready var _target_on_radius: bool = %TriggerArea.has_overlapping_bodies()
 @onready var _target: Node2D = null
 
-
 var _state: State = State.IDLE
+
+signal died()
 
 func _physics_process(delta: float) -> void:
 	if _target_on_radius:
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_health_component_died() -> void:
+	died.emit()
 	%Sprite.play("death")
 	
 	# We need to check this otherwise when calling queue free or if the player exits before the animation ends this will change the animation or crash the engine because %Sprite will also be null.
