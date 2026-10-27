@@ -15,6 +15,7 @@ signal gameover()
 var _input_direction: Vector2
 
 func _physics_process(_delta: float) -> void:
+	if %HealthComponent.is_dead(): return
 	_update_inputs()
 	_update_velocity()
 	_update_sprite()
@@ -62,7 +63,6 @@ func _update_position() -> void:
 
 
 func _update_sprite() -> void:
-	if %HealthComponent.is_dead(): return
 	if _input_direction:
 		$Sprite2D.play("run")
 	else:
@@ -93,6 +93,8 @@ func _on_health_component_took_damage(
 
 
 func _on_health_component_died() -> void:
+	feel_component.squash_animation($Sprite2D, Vector2(0.2, 1.8), 0.4)
+	
 	$Sprite2D.play('death')
 	await $Sprite2D.animation_finished
 	gameover.emit()
