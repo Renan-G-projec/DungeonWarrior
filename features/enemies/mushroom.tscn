@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_nxvm5"]
 [ext_resource type="Texture2D" uid="uid://crw556fsdriyo" path="res://features/enemies/ememies/mushroom.png" id="2_cqner"]
+[ext_resource type="Texture2D" uid="uid://bpybb7c23boox" path="res://features/enemies/ememies/mushroom_death.png" id="2_yoc6d"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_yoc6d"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_eyssa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_hm7j4"]
@@ -9,21 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_vqgh3"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_t5dbo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjtwk"]
-atlas = ExtResource("2_cqner")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyssa"]
+atlas = ExtResource("2_yoc6d")
 region = Rect2(0, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_54lf6"]
-atlas = ExtResource("2_cqner")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm7j4"]
+atlas = ExtResource("2_yoc6d")
 region = Rect2(8, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7w8a"]
-atlas = ExtResource("2_cqner")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5eg2"]
+atlas = ExtResource("2_yoc6d")
 region = Rect2(16, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdcol"]
-atlas = ExtResource("2_cqner")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqgh3"]
+atlas = ExtResource("2_yoc6d")
 region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5dbo"]
+atlas = ExtResource("2_yoc6d")
+region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52d48"]
 atlas = ExtResource("2_cqner")
@@ -61,16 +66,19 @@ region = Rect2(24, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bjtwk")
+"texture": SubResource("AtlasTexture_eyssa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_54lf6")
+"texture": SubResource("AtlasTexture_hm7j4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v7w8a")
+"texture": SubResource("AtlasTexture_l5eg2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jdcol")
+"texture": SubResource("AtlasTexture_vqgh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5dbo")
 }],
 "loop": 0,
 "name": &"death",
@@ -122,6 +130,7 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 49
 script = ExtResource("1_nxvm5")
+metadata/_edit_group_ = true
 
 [node name="VisionToPlayer" type="RayCast2D" parent="." unique_id=627185894]
 unique_name_in_owner = true
@@ -130,7 +139,7 @@ collision_mask = 4
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1555947550]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_avmdd")
-animation = &"run"
+animation = &"death"
 autoplay = "run"
 
 [node name="TriggerArea" type="Area2D" parent="." unique_id=1655906864]

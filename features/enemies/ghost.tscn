@@ -2,12 +2,33 @@
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_xphp3"]
 [ext_resource type="Texture2D" uid="uid://bsedhtyri2oav" path="res://features/enemies/ememies/ghost.png" id="2_1van2"]
+[ext_resource type="Texture2D" uid="uid://bqc475hcf28ji" path="res://features/enemies/ememies/ghost_death.png" id="2_2bdyy"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_2bdyy"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_ypydx"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_2cts1"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="6_figya"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_smrxp"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_xaude"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypydx"]
+atlas = ExtResource("2_2bdyy")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cts1"]
+atlas = ExtResource("2_2bdyy")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_figya"]
+atlas = ExtResource("2_2bdyy")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smrxp"]
+atlas = ExtResource("2_2bdyy")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaude"]
+atlas = ExtResource("2_2bdyy")
+region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_msyff"]
 atlas = ExtResource("2_1van2")
@@ -29,16 +50,19 @@ region = Rect2(24, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_msyff")
+"texture": SubResource("AtlasTexture_ypydx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mim6n")
+"texture": SubResource("AtlasTexture_2cts1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e2js8")
+"texture": SubResource("AtlasTexture_figya")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ul6bh")
+"texture": SubResource("AtlasTexture_smrxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaude")
 }],
 "loop": 0,
 "name": &"death",
