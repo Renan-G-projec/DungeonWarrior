@@ -14,5 +14,5 @@ position = Vector2(76, 85)
 rotation = 1.5707964
 target_scene = "uid://bkumstfib4vw0"
 
-[node name="Bat" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
+[node name="Bat" parent="." index="3" unique_id=651179315 groups=["enemy"] instance=ExtResource("3_be3bm")]
 position = Vector2(111, 38)

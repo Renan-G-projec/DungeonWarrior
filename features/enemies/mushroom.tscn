@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dgn7amf5jlfso"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_nxvm5"]
-[ext_resource type="Texture2D" uid="uid://crw556fsdriyo" path="res://features/enemies/ememies/mushroom.png" id="2_cqner"]
+[ext_resource type="Texture2D" uid="uid://crw556fsdriyo" path="res://features/enemies/enemies/mushroom.png" id="2_cqner"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_yoc6d"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_eyssa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_hm7j4"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="6_l5eg2"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_vqgh3"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_t5dbo"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjtwk"]
 atlas = ExtResource("2_cqner")

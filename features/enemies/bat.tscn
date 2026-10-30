@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://depkumqctdya2"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_5qp1t"]
-[ext_resource type="Texture2D" uid="uid://dloktptkc5rvd" path="res://features/enemies/ememies/bat.png" id="2_ps300"]
+[ext_resource type="Texture2D" uid="uid://dloktptkc5rvd" path="res://features/enemies/enemies/bat.png" id="2_ps300"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_cwv7e"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_e2f2m"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_tde07"]
