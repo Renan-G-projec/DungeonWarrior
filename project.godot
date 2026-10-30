@@ -94,6 +94,8 @@ dash={
 2d_physics/layer_2="Enemies"
 2d_physics/layer_3="Bullets"
 2d_physics/layer_4="Collectables"
+2d_physics/layer_5="Map"
+2d_physics/layer_6="Boomerang"
 
 [physics]
 
