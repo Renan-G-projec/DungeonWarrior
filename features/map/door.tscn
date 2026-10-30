@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bh4pew5jyh1mq"]
 
 [ext_resource type="Script" uid="uid://biwpn4cmcgd3v" path="res://features/map/door.gd" id="1_urb8f"]
-[ext_resource type="Texture2D" uid="uid://dtkmekwaydl6l" path="res://features/map/tileset.png" id="1_ya1gw"]
+[ext_resource type="Texture2D" uid="uid://n1ibw7bd7hl3" path="res://features/map/door.png" id="2_urb8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(24, 24)
@@ -10,10 +10,11 @@ size = Vector2(24, 24)
 script = ExtResource("1_urb8f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1729819053]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-texture = ExtResource("1_ya1gw")
-region_enabled = true
+texture = ExtResource("2_urb8f")
 region_rect = Rect2(8, 8, 8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=697368537]
 shape = SubResource("RectangleShape2D_d1p6d")
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=624761849]
+position = Vector2(-12, 0)

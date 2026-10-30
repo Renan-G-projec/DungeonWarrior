@@ -8,6 +8,11 @@ extends Area2D
 
 signal player_interacted()
 
+func _ready() -> void:
+	var tween: Tween = $Sprite2D.create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT).set_loops()
+	tween.tween_property($Sprite2D, "scale", Vector2(0.8, 1.2), 1.2)
+	tween.tween_property($Sprite2D, "scale", Vector2(1.2, 0.8), 1.2)
+
 func _process(delta: float) -> void:
 	if !Input.is_action_just_pressed("Interact"): return
 	if !has_overlapping_bodies(): return
