@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	if _is_coming_back:
 		var target_position: Vector2 = _player_ref.global_position - global_position
 		var target_velocity: Vector2 = target_position.normalized() * speed
-		velocity = velocity.lerp(target_velocity, 0.4)
+		velocity = velocity.lerp(target_velocity, 0.05)
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, 0.2);
 		if velocity.length() <= 32:
@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 			set_collision_mask_value(5, false)
 			set_collision_mask_value(1, true)
 
+	rotation += 0.3
 	global_position += velocity * delta
 
 func _on_body_entered(body: Node2D) -> void:
