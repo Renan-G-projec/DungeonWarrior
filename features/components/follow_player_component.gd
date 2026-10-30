@@ -48,7 +48,7 @@ func _check_player_collision() -> void:
 	for i in body.get_slide_collision_count():
 		var collision: KinematicCollision2D = body.get_slide_collision(i)
 		if collision.get_collider() is Player:
-			var player_health := collision.get_node_or_null("HealthComponent") as HealthComponent
+			var player_health := collision.get_collider().get_node_or_null("HealthComponent") as HealthComponent
 			if player_health:
 				player_health.take_damage(damage, body)
 				cooldown_time = attack_cooldown

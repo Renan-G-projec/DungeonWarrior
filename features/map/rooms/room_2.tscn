@@ -7,11 +7,11 @@
 [node name="Room2" unique_id=1991131083 instance=ExtResource("1_u5s2s")]
 
 [node name="Door" parent="." index="2" unique_id=1475764445 instance=ExtResource("2_ked8u")]
-position = Vector2(77, 81)
+position = Vector2(76, 65)
 target_scene = "uid://hbugebch8c06"
 
 [node name="Door2" parent="." index="3" unique_id=2020226135 instance=ExtResource("2_ked8u")]
-position = Vector2(21, 45)
+position = Vector2(34, 45)
 id = 1
 target_scene = "uid://bvodqriqoe44w"
 

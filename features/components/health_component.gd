@@ -67,3 +67,6 @@ func take_damage(damage: float, attacker: Node2D) -> void:
 
 func die() -> void:
 	life = -1.0
+
+func is_dead() -> bool:
+	return life <= 0

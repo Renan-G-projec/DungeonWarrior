@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cn5jgmtbtkavj"]
+
+[ext_resource type="PackedScene" uid="uid://hjqp6neu5qh2" path="res://features/weapons/bullets/bullet_base.tscn" id="1_3xqwv"]
+[ext_resource type="Texture2D" uid="uid://btvktrmu75ir0" path="res://features/weapons/weapons/boomerang.png" id="2_sv5k7"]
+[ext_resource type="Script" uid="uid://chwfbpl8g2rml" path="res://features/weapons/bullets/boomerang/boomerang_bullet.gd" id="2_wabqo"]
+
+[node name="BoomerangBullet" unique_id=631913319 instance=ExtResource("1_3xqwv")]
+collision_mask = 18
+script = ExtResource("2_wabqo")
+speed = 40.0
+
+[node name="Sprite2D" parent="." index="1" unique_id=19741843]
+scale = Vector2(1, 1)
+texture = ExtResource("2_sv5k7")
+
+[node name="Lifetime" parent="." index="2" unique_id=1026420694]
+wait_time = 20.0

@@ -17,6 +17,7 @@ func get_dash_force() -> Vector2:
 	return _current_dash_force * _direction
 
 func dash(direction: Vector2, force: float = dash_force, decay: float = dash_decay) -> void:
+	if is_dashing: return
 	if _dash_tween:
 		_dash_tween.kill()
 	_dash_tween = create_tween()
