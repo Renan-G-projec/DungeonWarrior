@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dij6uc33tqb26"]
+
+[ext_resource type="Script" uid="uid://c7ixkpmn5d8r5" path="res://scenes/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://pf50x5m3mu1c" path="res://scenes/tiled.png" id="2_mhnvy"]
+[ext_resource type="Theme" uid="uid://b4alkjknljxp1" path="res://scenes/menu.res" id="3_4ytvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+corner_detail = 1
+
+[node name="Menu" type="Node" unique_id=554285726]
+script = ExtResource("1_con2f")
+
+[node name="Control" type="Panel" parent="." unique_id=1760481828]
+custom_minimum_size = Vector2(40, 90)
+clip_contents = true
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_ouk20")
+
+[node name="Parallax2D" type="Parallax2D" parent="Control" unique_id=696892843]
+repeat_size = Vector2(8, 8)
+autoscroll = Vector2(4, 4)
+repeat_times = 15
+ignore_camera_scroll = true
+screen_offset = Vector2(20, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Parallax2D" unique_id=1583942385]
+texture = ExtResource("2_mhnvy")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1772843465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1826486308]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="PlayButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=849886830]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+bbcode_enabled = true
+text = "Play"
+fit_content = true
+
+[node name="SettingsButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=1949046619]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+bbcode_enabled = true
+text = "Settings
+"
+fit_content = true
+
+[node name="CreditsButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=327126180]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+bbcode_enabled = true
+text = "Credits"
+fit_content = true
+
+[node name="ExitButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+bbcode_enabled = true
+text = "Quit"
+fit_content = true
