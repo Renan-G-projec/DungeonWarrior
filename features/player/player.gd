@@ -2,7 +2,7 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var speed: float = 64.0
+@onready var speed: float = 32.0
 @onready var knockback: KnockbackComponent = $KnockbackComponent
 @onready var dash_component: DashComponent = %DashComponent
 @onready var feel_component: FeelComponent = $FeelComponent
@@ -35,7 +35,7 @@ func _update_inputs() -> void:
 
 	if Input.is_action_just_pressed("dash"):
 		dash_component.dash(_get_mouse_direction())
-		feel_component.squash_animation($Sprite2D, $Sprite2D.scale * 0.9)
+		feel_component.squash_animation($Sprite2D, Vector2(1.5, 0.5), 0.3)
 
 
 func _update_velocity() -> void:

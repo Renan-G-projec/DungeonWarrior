@@ -217,16 +217,16 @@ unique_name_in_owner = true
 [node name="KnockbackComponent" type="Node" parent="." unique_id=281451004]
 script = ExtResource("6_y2cyt")
 
-[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]
-offset_top = 4.0
-offset_bottom = 4.0
-bind_health_component = NodePath("../HealthComponent")
-
 [node name="Pull" type="Node" parent="." unique_id=1180060364]
 script = ExtResource("8_kt1oa")
 
 [node name="StunComponent" type="Node" parent="." unique_id=1315810615]
 script = ExtResource("9_k34i2")
+
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_i250s")]
+offset_top = 4.0
+offset_bottom = 4.0
+bind_health_component = NodePath("../HealthComponent")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
