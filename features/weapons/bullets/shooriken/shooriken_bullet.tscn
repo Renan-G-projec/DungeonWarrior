@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://qqqr371217od"]
+
+[ext_resource type="PackedScene" uid="uid://hjqp6neu5qh2" path="res://features/weapons/bullets/bullet_base.tscn" id="1_663c8"]
+[ext_resource type="Texture2D" uid="uid://bvh2xcx0fw6a5" path="res://features/weapons/bullets/shooriken/shooriken.png" id="2_mhef0"]
+[ext_resource type="Script" uid="uid://cl3w2cwp5lov7" path="res://features/weapons/bullets/shooriken/shooriken_bullet.gd" id="2_p8lgw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p8lgw"]
+radius = 2.4
+
+[node name="ShoorikenBullet" unique_id=631913319 instance=ExtResource("1_663c8")]
+collision_mask = 18
+script = ExtResource("2_p8lgw")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=844408338]
+shape = SubResource("CircleShape2D_p8lgw")
+
+[node name="Sprite2D" parent="." index="1" unique_id=19741843]
+scale = Vector2(1, 1)
+texture = ExtResource("2_mhef0")
