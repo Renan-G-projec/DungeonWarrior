@@ -42,6 +42,8 @@ func attack() -> void:
 	ammo -= 1
 	%ShootCooldown.start()
 	%FeelComponent.squash_animation($WeaponSprite, Vector2(0.3, 1.9), 0.32)
+	
+	attacked.emit()
 
 func start_recharging() -> void:
 	if _is_recharging || ammo > 0: return

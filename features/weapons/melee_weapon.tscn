@@ -8,6 +8,7 @@ size = Vector2(11, 20)
 
 [node name="MeleeWeapon" type="Node2D" unique_id=767143745]
 script = ExtResource("1_vgtof")
+is_heavy = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1929118007]
 position = Vector2(12, 0)

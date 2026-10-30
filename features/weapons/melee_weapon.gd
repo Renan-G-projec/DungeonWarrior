@@ -36,3 +36,4 @@ func _on_hit_area_body_entered(body: Node2D) -> void:
 	var body_health := body.get_node_or_null("HealthComponent") as HealthComponent
 	if body_health:
 		body_health.take_damage(damage, self)
+		attacked.emit()

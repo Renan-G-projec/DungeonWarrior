@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://j0ylr56ylcon"]
+
+[ext_resource type="PackedScene" uid="uid://bvc4oqeaqkdcs" path="res://features/weapons/bullet_weapon.tscn" id="1_vpupd"]
+[ext_resource type="Script" uid="uid://dugfl7rdbrdbg" path="res://features/weapons/weapons/shooriken.gd" id="2_yuq0d"]
+[ext_resource type="Texture2D" uid="uid://bvh2xcx0fw6a5" path="res://features/weapons/bullets/shooriken/shooriken.png" id="3_slvbg"]
+[ext_resource type="PackedScene" uid="uid://qqqr371217od" path="res://features/weapons/bullets/shooriken/shooriken_bullet.tscn" id="3_yuq0d"]
+
+[node name="Shooriken" unique_id=148830378 instance=ExtResource("1_vpupd")]
+script = ExtResource("2_yuq0d")
+spread_angle = 10.0
+bullet = ExtResource("3_yuq0d")
+bullet_velocity = 64.0
+ammo = 4
+max_ammo = 4
+
+[node name="WeaponSprite" parent="." index="0" unique_id=1992463875]
+scale = Vector2(1, 1)
+texture = ExtResource("3_slvbg")
+
+[node name="BulletSpawn" parent="." index="1" unique_id=2065592599]
+position = Vector2(4, 0)

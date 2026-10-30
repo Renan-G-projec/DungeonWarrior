@@ -9,7 +9,15 @@ extends CharacterBody2D
 @onready var pull: Pull = $Pull
 @onready var stun_component: StunComponent = $StunComponent
 
-@export var weapon: WeaponBase
+@export var weapon: WeaponBase:
+	set(new_weapon):
+		if weapon == new_weapon: return
+		if weapon:
+			weapon.attacked.disconnect(_on_weapon_attacked)
+		if new_weapon:
+			new_weapon.attacked.connect(_on_weapon_attacked)
+		
+		weapon = new_weapon
 
 signal gameover()
 var _input_direction: Vector2
@@ -32,7 +40,7 @@ func _update_inputs() -> void:
 	
 	if Input.is_action_just_pressed("attack") and weapon:
 		weapon.attack()
-
+		
 	if Input.is_action_just_pressed("dash"):
 		dash_component.dash(_get_mouse_direction())
 		feel_component.squash_animation($Sprite2D, Vector2(1.5, 0.5), 0.3)
@@ -100,4 +108,6 @@ func _on_health_component_died() -> void:
 	gameover.emit()
 	
 	queue_free()
-	
+
+func _on_weapon_attacked() -> void:
+	if weapon.is_heavy: dash_component.dash((global_position - get_global_mouse_position()).normalized() * 0.5)

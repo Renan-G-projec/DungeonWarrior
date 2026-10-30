@@ -25,6 +25,7 @@ func attack():
 	boomerang_bullet.player_collected.connect(_on_player_collected_boomerang)
 	boomerang_bullet._player_ref = get_tree().get_first_node_in_group("player")
 	
+	attacked.emit()
 	get_tree().root.add_child(boomerang_bullet)
 
 func _to_mouse() -> Vector2:
