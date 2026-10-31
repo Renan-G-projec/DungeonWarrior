@@ -11,8 +11,15 @@ enum State {IDLE, TELEGRAPH, ACTIVE, COOLDOWN}
 @export var cooldown_time := 2.0
 @export var tick_damage :=false
 
+@export var detection_range := 500
+@export var idle_delay := 1.0
+@export var target_group := "player"
+@export var drop_on_player := true
+
 var state: State = State.IDLE
 var attacker: Node
+var target: Node2D
+var _idle_timer := 0.0
 var _already_hit = []
 
 @onready var shape: CollisionShape2D= $CollisionShape2D
@@ -22,15 +29,18 @@ var _already_hit = []
 
 func _ready() -> void:
 	attacker = get_parent()
+	top_level = drop_on_player
+	_idle_timer = idle_delay
 	shape.disabled = true
 	telegraph_timer.timeout.connect(func(): _set_state(State.ACTIVE))	
 	active_timer.timeout.connect(func(): _set_state(State.IDLE))
-	cooldown_timer.timeout.connect(func(): _set_state(State.IDLE))
-
+	cooldown_timer.timeout.connect(func(): _set_state(State.COOLDOWN))
+	
 func start() -> void:
 	if state != State.IDLE:
 		return
 	_set_state(State.TELEGRAPH)
+
 func _set_state(new_state: State) -> void:
 	state = new_state
 	match state:
@@ -42,6 +52,7 @@ func _set_state(new_state: State) -> void:
 			telegraph_timer.start(telegraph_time)
 			queue_redraw()
 		State.ACTIVE:
+			_already_hit.clear()
 			shape.set_deferred("disabled", false)
 			active_timer.start(active_time)
 			queue_redraw()
@@ -57,7 +68,23 @@ func _set_state(new_state: State) -> void:
 func _physics_process(delta: float) -> void: 
 	if state == State.ACTIVE and tick_damage:
 		_hit_overlapping()
-		
+	
+	if target == null or not is_instance_valid(target):
+		target = get_tree().get_first_node_in_group(target_group) as Node2D
+		if target == null: 
+			return
+	
+
+	if state == State.IDLE: 
+		if not drop_on_player:
+			global_position = attacker.global_position
+		_idle_timer = _idle_timer - delta
+		if _idle_timer <= 0.0 and attacker.global_position.distance_to(target.global_position) <= detection_range:
+			if drop_on_player:
+				global_position = target.global_position
+			_idle_timer = idle_delay
+			start()
+
 func _hit_overlapping() -> void:
 	if state != State.ACTIVE:
 		return
@@ -72,7 +99,6 @@ func _hit_overlapping() -> void:
 func _draw() -> void:
 	var r: float = shape.shape.radius
 	match state:
-	
 	
 		State.TELEGRAPH:
 			draw_arc(Vector2.ZERO, r, 0, TAU, 48, Color(1,0,0,0.8))
