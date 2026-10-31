@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="6_figya"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_smrxp"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_xaude"]
+[ext_resource type="PackedScene" uid="uid://bp4482rmj32qo" path="res://features/components/lazer_attack.tscn" id="9_2bdyy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypydx"]
 atlas = ExtResource("2_2bdyy")
@@ -153,6 +154,9 @@ script = ExtResource("5_2cts1")
 script = ExtResource("6_figya")
 projectile = ExtResource("7_smrxp")
 muzzle = NodePath("../Muzzle")
+
+[node name="LazerAttack" parent="." unique_id=528679731 instance=ExtResource("9_2bdyy")]
+rotation = -1.5707964
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_xaude")]
 offset_top = 6.0

@@ -61,6 +61,8 @@ func _hit_overlapping() -> void:
 func _draw() -> void:
 	var r: float = shape.shape.radius
 	match state:
+	
+	
 		State.TELEGRAPH:
 			draw_arc(Vector2.ZERO, r, 0, TAU, 48, Color(1,0,0,0.8))
 			var t := 1.0 - (telegraph_timer.time_left / telegraph_time)

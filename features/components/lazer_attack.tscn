@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bp4482rmj32qo"]
+
+[ext_resource type="Script" uid="uid://xej5e3maaasu" path="res://features/components/lazer_attack.gd" id="1_ssu08"]
+
+[node name="LazerAttack" type="Node2D" unique_id=528679731]
+script = ExtResource("1_ssu08")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=375110276]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=82479544]
+width = 14.0
+default_color = Color(0.38885483, 0.6026629, 1, 1)
+joint_mode = 2

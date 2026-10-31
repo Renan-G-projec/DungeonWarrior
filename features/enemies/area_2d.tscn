@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bhtmdls4jstau"]
 
-[ext_resource type="Script" uid="uid://dd4tuc6b3xbua" path="res://features/AOE_attack.gd" id="1_gf172"]
+[ext_resource type="Script" uid="uid://dd4tuc6b3xbua" path="res://features/components/AOE_attack.gd" id="1_2g6qu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xslbe"]
 radius = 23.021729
 
 [node name="AOEAttack" type="Area2D" unique_id=1317857365]
-script = ExtResource("1_gf172")
+script = ExtResource("1_2g6qu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329940709]
 shape = SubResource("CircleShape2D_xslbe")
