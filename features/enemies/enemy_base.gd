@@ -8,7 +8,8 @@ enum State {
 	DEAD
 }
 
-const SPEED = 10.0
+var speed: float = 10.0
+var speed_multiplier: float = 1.0
  
 @onready var _target_on_radius: bool = %TriggerArea.has_overlapping_bodies()
 @onready var _target: Node2D = null
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			%Sprite.flip_h = direction.x < 0
 			%Sprite.play("run")
 			
-			velocity = direction * SPEED
+			velocity = direction * speed * speed_multiplier
 	
 	move_and_slide()
 
