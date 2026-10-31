@@ -49,5 +49,9 @@ func _on_body_entered(body: Node2D) -> void:
 		var burning_component := body.get_node_or_null("BurningComponent") as BurningComponent
 		if burning_component:
 			burning_component.start_burning_effect()
+	if type == BulletType.ICE:
+		var freeze_component := body.get_node_or_null("FreezeComponent") as FreezeComponent
+		if freeze_component:
+			freeze_component.start_freeze_effect()
 	
 	super._on_body_entered(body)

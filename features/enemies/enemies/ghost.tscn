@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqc475hcf28ji" path="res://features/enemies/enemies/ghost_death.png" id="2_wspua"]
 [ext_resource type="Texture2D" uid="uid://bsedhtyri2oav" path="res://features/enemies/enemies/ghost.png" id="3_0jei7"]
 [ext_resource type="PackedScene" uid="uid://bp4482rmj32qo" path="res://features/components/lazer_attack.tscn" id="4_f1y1p"]
+[ext_resource type="Script" uid="uid://ccer7p7p1ma36" path="res://features/components/freeze_component.gd" id="5_wspua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypydx"]
 atlas = ExtResource("2_wspua")
@@ -104,6 +105,13 @@ animations = [{
 position = Vector2(1, 6)
 sprite_frames = SubResource("SpriteFrames_1cf6x")
 
-[node name="LazerAttack" parent="." index="11" unique_id=528679731 instance=ExtResource("4_f1y1p")]
+[node name="FreezeComponent" type="Node" parent="." index="10" unique_id=2019112183 node_paths=PackedStringArray("health_component", "sprite", "target_to_freeze")]
+script = ExtResource("5_wspua")
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+target_to_freeze = NodePath("..")
+metadata/_custom_type_script = "uid://ccer7p7p1ma36"
+
+[node name="LazerAttack" parent="." index="12" unique_id=528679731 instance=ExtResource("4_f1y1p")]
 position = Vector2(1, 6)
 rotation = -1.5707964

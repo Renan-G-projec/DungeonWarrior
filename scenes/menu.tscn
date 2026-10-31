@@ -1,8 +1,20 @@
-[gd_scene format=3 uid="uid://dij6uc33tqb26"]
+[gd_scene format=4 uid="uid://dij6uc33tqb26"]
 
 [ext_resource type="Script" uid="uid://c7ixkpmn5d8r5" path="res://scenes/menu.gd" id="1_con2f"]
+[ext_resource type="TileSet" uid="uid://douwqve4hrr3m" path="res://features/map/tileset.tres" id="2_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://pf50x5m3mu1c" path="res://scenes/tiled.png" id="2_mhnvy"]
 [ext_resource type="Theme" uid="uid://b4alkjknljxp1" path="res://scenes/menu.res" id="3_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies/ghost.tscn" id="3_g3eks"]
+[ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="4_v86rl"]
+[ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="5_13sgg"]
+[ext_resource type="Texture2D" uid="uid://cqkhdvyrnvfwo" path="res://scenes/title.png" id="6_13sgg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
 corner_detail = 1
@@ -10,29 +22,72 @@ corner_detail = 1
 [node name="Menu" type="Node" unique_id=554285726]
 script = ExtResource("1_con2f")
 
-[node name="Control" type="Panel" parent="." unique_id=1760481828]
+[node name="Background" type="TileMapLayer" parent="." unique_id=1322832244]
+tile_map_data = PackedByteArray("AAAKAAQAAAABAAEAAAALAAQAAAABAAEAAAALAAUAAAABAAEAAAAMAAUAAAABAAEAAAAQAAIAAAABAAEAAAARAAIAAAABAAEAAAASAAIAAAABAAEAAAAGAAkAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAHAAsAAAABAAEAAAAIAAsAAAABAAEAAAAIAAoAAAABAAEAAAASAAoAAAABAAEAAAATAAoAAAABAAEAAAAGAAEAAAABAAEAAAAGAAAAAAABAAEAAAAGAP//AAABAAEAAAAFAAAAAAABAAEAAAAHAAAAAAABAAEAAAAMAP//AAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAANAP//AAABAAEAAAAOAP//AAABAAEAAAAOAAAAAAABAAEAAAANAAUAAAABAAEAAAANAAYAAAABAAEAAAAOAAYAAAABAAEAAAAMAAYAAAABAAEAAAAMAAQAAAABAAEAAAANAAQAAAABAAEAAAALAAYAAAABAAEAAAAKAAYAAAABAAEAAAAKAAUAAAABAAEAAAALAAMAAAABAAEAAAAMAAMAAAABAAEAAAAJAAQAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAIAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAGAAQAAAABAAEAAAAOAAcAAAABAAEAAAANAAcAAAABAAEAAAAMAAcAAAABAAEAAAAOAAUAAAABAAEAAAAPAAUAAAABAAEAAAAPAAYAAAABAAEAAAAPAAcAAAABAAEAAAAQAAYAAAABAAEAAAATAAcAAAABAAEAAAAUAAcAAAABAAEAAAAUAAYAAAABAAEAAAAVAAcAAAABAAEAAAAWAAcAAAABAAEAAAAWAAgAAAABAAEAAAAVAAgAAAABAAEAAAAXAAIAAAABAAEAAAAWAAIAAAABAAEAAAAVAAIAAAABAAEAAAAVAAEAAAABAAEAAAAWAAEAAAABAAEAAAAXAAEAAAABAAEAAAAWAAAAAAABAAEAAAAVAAAAAAABAAEAAAAWAP//AAABAAEAAAAXAP//AAABAAEAAAAXAP7/AAABAAEAAAAMAA4AAAABAAEAAAALAA4AAAABAAEAAAALAA0AAAABAAEAAAAMAA0AAAABAAEAAAANAA0AAAABAAEAAAAOAA0AAAABAAEAAAAOAA4AAAABAAEAAAANAA4AAAABAAEAAAAMAA8AAAABAAEAAAAOAA8AAAABAAEAAAAPAA8AAAABAAEAAAA=")
+tile_set = ExtResource("2_4ytvr")
+
+[node name="BackgroundWall" type="TileMapLayer" parent="." unique_id=816938550]
+tile_map_data = PackedByteArray("AAAQAAUAAQABAAIAAAARAAUAAQACAAIAAAASAAUAAQACAAIAAAATAAUAAQACAAIAAAAUAAUAAQACAAIAAAAVAAUAAQADAAAAAAAVAAYAAQABAAIAAAAWAAYAAQACAAIAAAAXAAYAAQACAAAAAAAYAAYAAQACAAIAAAAZAAYAAQADAAIAAAAQAAQAAQADAAAAAAAPAAQAAQACAAIAAAAOAAQAAQABAAIAAAANAAMAAQABAAIAAAAOAAMAAQADAAAAAAANAAIAAQADAAAAAAAMAAIAAQACAAIAAAALAAIAAQACAAIAAAAKAAIAAQACAAAAAAAJAAIAAQACAAAAAAAIAAIAAQACAAAAAAAHAAIAAQABAAAAAAAHAAMAAQADAAIAAAAGAAMAAQACAAAAAAAFAAMAAQACAAIAAAAEAAMAAQACAAAAAAADAAMAAQACAAIAAAACAAMAAQACAAIAAAABAAMAAQACAAAAAAAAAAMAAQABAAIAAAABAAgAAQABAAIAAAACAAgAAQACAAAAAAADAAgAAQACAAAAAAAEAAgAAQACAAAAAAAFAAgAAQACAAAAAAAGAAgAAQACAAAAAAAHAAgAAQACAAIAAAAIAAgAAQACAAIAAAAJAAgAAQADAAAAAAAJAAkAAQABAAIAAAAKAAkAAQACAAAAAAALAAkAAQACAAIAAAAMAAkAAQACAAAAAAANAAkAAQACAAAAAAAOAAkAAQADAAAAAAAOAAoAAQABAAIAAAAPAAoAAQACAAIAAAAQAAoAAQACAAAAAAARAAoAAQADAAIAAAARAAkAAQAEAAEAAAARAAgAAQAEAAEAAAARAAcAAQABAAAAAAASAAcAAQACAAIAAAATAAcAAQADAAAAAAATAAgAAQABAAIAAAAUAAgAAQACAAAAAAAVAAgAAQACAAAAAAAWAAgAAQACAAAAAAAXAAgAAQACAAIAAAAYAAgAAQACAAIAAAAZAAgAAQACAAIAAAAaAAgAAQADAAIAAAAQAP7/AQAEAAEAAAAQAP//AQAEAAEAAAAQAAAAAQAEAAEAAAAQAAEAAQABAAIAAAARAAEAAQACAAAAAAASAAEAAQADAAIAAAASAAAAAQABAAAAAAATAAAAAQACAAIAAAAUAAAAAQADAAIAAAAUAP//AQAEAAEAAAAUAP7/AQAEAAEAAAAUAP3/AQAEAAEAAAAUAPz/AQAEAAEAAAA=")
+tile_set = ExtResource("2_4ytvr")
+
+[node name="Bat" parent="BackgroundWall" unique_id=900112183 instance=ExtResource("5_13sgg")]
+position = Vector2(150, 24)
+
+[node name="Lifebar" parent="BackgroundWall/Bat" index="9" unique_id=1262679545]
+visible = false
+
+[node name="Mushroom" parent="BackgroundWall" unique_id=28415231 instance=ExtResource("4_v86rl")]
+position = Vector2(58, 81)
+
+[node name="Lifebar" parent="BackgroundWall/Mushroom" index="10" unique_id=1262679545]
+visible = false
+
+[node name="Ghost" parent="BackgroundWall" unique_id=651179315 instance=ExtResource("3_g3eks")]
+position = Vector2(100, 40)
+
+[node name="Lifebar" parent="BackgroundWall/Ghost" index="11" unique_id=1262679545]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=383157169]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012617188, 0.012617188, 0.012617188, 0.59607846)
+
+[node name="Title" type="Sprite2D" parent="." unique_id=581450365]
+position = Vector2(100, 24)
+texture = ExtResource("6_13sgg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=355182650]
+offset_right = 41.0
+offset_bottom = 90.0
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1130631975]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhnvy")
+
+[node name="Control" type="Panel" parent="MarginContainer" unique_id=1760481828]
 custom_minimum_size = Vector2(40, 90)
 clip_contents = true
-anchors_preset = -1
-anchor_right = 0.25
-anchor_bottom = 1.0
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ouk20")
 
-[node name="Parallax2D" type="Parallax2D" parent="Control" unique_id=696892843]
+[node name="Parallax2D" type="Parallax2D" parent="MarginContainer/Control" unique_id=696892843]
 repeat_size = Vector2(8, 8)
 autoscroll = Vector2(4, 4)
 repeat_times = 15
 ignore_camera_scroll = true
 screen_offset = Vector2(20, 45)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Parallax2D" unique_id=1583942385]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Control/Parallax2D" unique_id=1583942385]
 texture = ExtResource("2_mhnvy")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1772843465]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control" unique_id=1772843465]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,20 +99,20 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1826486308]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer" unique_id=1826486308]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="PlayButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=849886830]
+[node name="PlayButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=849886830]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Play"
 fit_content = true
 
-[node name="SettingsButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=1949046619]
+[node name="SettingsButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1949046619]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
@@ -65,16 +120,23 @@ text = "Settings
 "
 fit_content = true
 
-[node name="CreditsButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=327126180]
+[node name="CreditsButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=327126180]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Credits"
 fit_content = true
 
-[node name="ExitButton" type="RichTextLabel" parent="Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
+[node name="ExitButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Quit"
 fit_content = true
+
+[node name="Player" type="Sprite2D" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1039817937]
+position = Vector2(98, 45)
+
+[editable path="BackgroundWall/Bat"]
+[editable path="BackgroundWall/Mushroom"]
+[editable path="BackgroundWall/Ghost"]

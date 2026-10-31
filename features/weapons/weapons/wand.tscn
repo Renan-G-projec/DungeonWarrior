@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://i08l58ye0xcp"]
+
+[ext_resource type="PackedScene" uid="uid://bvc4oqeaqkdcs" path="res://features/weapons/bullet_weapon.tscn" id="1_valwi"]
+[ext_resource type="PackedScene" uid="uid://b3xoj5s42yyel" path="res://features/weapons/bullets/wand/wand_bullet.tscn" id="2_73iu0"]
+[ext_resource type="Script" uid="uid://b1noroyf5u6hy" path="res://features/weapons/weapons/wand.gd" id="2_nwdhu"]
+[ext_resource type="Texture2D" uid="uid://b8ulj6mir0wqy" path="res://features/weapons/weapons/wand.png" id="3_nwdhu"]
+
+[node name="Wand" unique_id=148830378 instance=ExtResource("1_valwi")]
+script = ExtResource("2_nwdhu")
+current_state = 0
+bullet = ExtResource("2_73iu0")
+bullet_velocity = 96.0
+ammo = 7
+max_ammo = 7
+
+[node name="WeaponSprite" parent="." index="0" unique_id=1992463875]
+position = Vector2(2, 0)
+scale = Vector2(1, 1)
+texture = ExtResource("3_nwdhu")
+offset = Vector2(5, 0)
+
+[node name="BulletSpawn" parent="." index="1" unique_id=2065592599]
+position = Vector2(11, 0)
