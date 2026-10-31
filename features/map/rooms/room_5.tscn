@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_2y6uj"]
 [ext_resource type="PackedScene" uid="uid://d2s327hiepted" path="res://features/enemies/boss/boss_base.tscn" id="3_2y6uj"]
 [ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="4_2u27a"]
-[ext_resource type="PackedScene" uid="uid://c2h4nhdibigug" path="res://features/enemies/ghost.tscn" id="5_alcp6"]
 [ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="6_66xuq"]
+[ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies/ghost.tscn" id="7_2u27a"]
 [ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/sllime.tscn" id="7_d6b46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6uj"]
@@ -45,13 +45,13 @@ shape = SubResource("RectangleShape2D_2y6uj")
 [node name="Bat" parent="." index="5" unique_id=651179315 instance=ExtResource("4_2u27a")]
 position = Vector2(37, 39)
 
-[node name="Ghost" parent="." index="6" unique_id=1968914671 instance=ExtResource("5_alcp6")]
-position = Vector2(119, 68)
-
-[node name="Slime" parent="." index="7" unique_id=1609814990 instance=ExtResource("6_66xuq")]
+[node name="Slime" parent="." index="6" unique_id=1609814990 instance=ExtResource("6_66xuq")]
 position = Vector2(103, 33)
 
-[node name="Slime2" parent="." index="8" unique_id=737770675 instance=ExtResource("7_d6b46")]
+[node name="Slime2" parent="." index="7" unique_id=737770675 instance=ExtResource("7_d6b46")]
 position = Vector2(52, 72)
+
+[node name="Ghost" parent="." index="8" unique_id=555240165 instance=ExtResource("7_2u27a")]
+position = Vector2(120, 66)
 
 [connection signal="body_entered" from="ColorRect/Area2D" to="BossBase" method="_on_area_2d_body_entered"]

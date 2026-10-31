@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_sh5sn"]
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_be3bm"]
-[ext_resource type="PackedScene" uid="uid://c2h4nhdibigug" path="res://features/enemies/ghost.tscn" id="3_be3bm"]
+[ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies/ghost.tscn" id="3_be3bm"]
 
 [node name="Room1" unique_id=1991131083 instance=ExtResource("1_sh5sn")]
 
@@ -18,4 +18,4 @@ rotation = 1.5707964
 target_scene = "uid://bkumstfib4vw0"
 
 [node name="Ghost" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
-position = Vector2(106, 43)
+position = Vector2(113, 42)
