@@ -9,7 +9,7 @@ extends CanvasLayer
 		if current_room:
 			current_room.queue_free()
 		current_room = room
-		current_room.player_interacted_with_door.connect(change_current_room)
+		current_room.player_interacted_with_door.connect(_on_player_interacted_with_door)
 		current_room.enemy_died.connect(_on_room_enemy_died)
 
 		move_child(current_room, 0)
@@ -38,6 +38,9 @@ func change_current_room(room: String, door_id: int) -> void:
 func _process(delta: float) -> void:
 	if Screenshake.active:
 		offset = Vector2.RIGHT.rotated(randf_range(-PI, PI)) * Screenshake.current_intensity
+
+func _on_player_interacted_with_door(room: String, door_id: int) -> void:
+	TransitionManager.flash(change_current_room.bind(room, door_id))
 
 func _on_player_gameover() -> void:
 	TransitionManager.flash(func() -> void: get_tree().reload_current_scene.call_deferred())
