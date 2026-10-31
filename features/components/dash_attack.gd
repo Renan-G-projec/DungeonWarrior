@@ -11,12 +11,12 @@ enum State { IDLE, TELEGRAPH, DASHING, COOLDOWN}
 
 @export var damage := 15
 @export var telegraph_time := 0.8
-@export var lock_time := 0.25
+@export var lock_time := 0.5
 @export var dash_speed := 900.0
 @export var dash_time := 0.4
 @export var cooldown_time := 2.0
 @export var stop_on_wall := true
-@export var telegraph_width := 24.0
+@export var telegraph_width := 12.0
 
 var state: State = State.IDLE
 var target: Node2D
@@ -65,8 +65,9 @@ func _physics_process(delta: float) -> void:
 			var speed := dash_speed * ((1.0 - time) ** 2)
 			body.velocity = _direction * speed
 			body.move_and_slide()
+			_hit_slide_collisions()
 			_hit_overlapping()
-			if time >= 1.0 or (stop_on_wall and body.is_on_wall()):
+			if time >= 1.0 or (stop_on_wall and _hit_wall()):
 				body.velocity = Vector2.ZERO
 				_set_state(State.COOLDOWN)
 		
@@ -99,15 +100,36 @@ func _set_state(new_state: State) -> void:
 	state_changed.emit(state)
 	queue_redraw()
 
+func _hit_slide_collisions() -> void:
+	for i in body.get_slide_collision_count():
+		var collider = body.get_slide_collision(i).get_collider()
+		if collider is Node:
+			_try_damage(collider)
+
 func _hit_overlapping() -> void:
 	for other in hit_area.get_overlapping_bodies():
-		if other == body or other in _already_hit:
-			continue
-		_already_hit.append(other)
-		var health = other.get_node_or_null("HealthComponent")
-		if health:
-			health.take_damage(damage, body)
+		_try_damage(other)
+	for other in hit_area.get_overlapping_areas():
+		_try_damage(other)
 
+func _hit_wall() -> bool:
+	for i in body.get_slide_collision_count():
+		var collider = body.get_slide_collision(i).get_collider()
+		if collider is Node and not collider.is_in_group(target_group):
+			return true
+	return false
+	
+func _try_damage(node: Node) -> void: 
+	var owner_node := node
+	var health = node.get_node_or_null("HealthComponent")
+	if health == null and node.get_parent():
+		owner_node = node.get_parent()
+		health = owner_node.get_node_or_null("HealthComponent")
+	if health == null or owner_node == body or owner_node in _already_hit:
+		return
+	_already_hit.append(owner_node)
+	health.take_damage(damage, body)
+	
 func _set_movement(enabled: bool) -> void:
 	if movement_component:
 		movement_component.set_physics_process(enabled)
@@ -118,8 +140,10 @@ func _draw() -> void:
 	var length := dash_speed * dash_time / 3.0
 	var time := 1.0 - (_timer / telegraph_time)
 	var half := telegraph_width * 0.5
+	draw_rect(Rect2(0, -half, length, telegraph_width), Color(1, 0, 0, 0.8), false, 2.0)
 	draw_rect(Rect2(0, -half, length * time, telegraph_width), Color(1, 0, 0, 0.25))
-	draw_rect(Rect2(0, -half, length * time, telegraph_width), Color(1, 0, 0, 0.25), false, 2.0)
+
+
 	
 	
 	
