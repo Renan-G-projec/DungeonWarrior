@@ -1,6 +1,6 @@
 # Ad Maiorem Dei Gloriam!
 class_name Main
-extends Node2D
+extends CanvasLayer
 
 @onready var player: Player = %Player
 
@@ -34,6 +34,10 @@ func change_current_room(room: String, door_id: int) -> void:
 	current_room = room_instance
 	
 	player.global_position = room_instance.get_door_position(door_id)
+
+func _process(delta: float) -> void:
+	if Screenshake.active:
+		offset = Vector2.RIGHT.rotated(randf_range(-PI, PI)) * Screenshake.current_intensity
 
 func _on_player_gameover() -> void:
 	TransitionManager.flash(func() -> void: get_tree().reload_current_scene.call_deferred())

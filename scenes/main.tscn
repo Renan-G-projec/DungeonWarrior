@@ -3,21 +3,15 @@
 [ext_resource type="Script" uid="uid://dftg4lre5dobe" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dn1dfydjjjmu4" path="res://features/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://hbugebch8c06" path="res://features/map/rooms/room_1.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://ekpvivw2k8ru" path="res://features/weapons/weapons/bow.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://b3xoj5s42yyel" path="res://features/weapons/bullets/wand/wand_bullet.tscn" id="5_tbgi4"]
 
-[node name="Main" type="Node2D" unique_id=450768612 node_paths=PackedStringArray("current_room")]
+[node name="Main" type="CanvasLayer" unique_id=198682224 node_paths=PackedStringArray("current_room")]
 script = ExtResource("1_o5qli")
 current_room = NodePath("Room1")
 
 [node name="Room1" parent="." unique_id=1991131083 instance=ExtResource("2_jyhfs")]
 
-[node name="Player" parent="." unique_id=2017001837 node_paths=PackedStringArray("weapon") instance=ExtResource("2_0wfyh")]
+[node name="Player" parent="." unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true
 position = Vector2(27, 31)
-weapon = NodePath("Bow")
-
-[node name="Bow" parent="Player" unique_id=148830378 instance=ExtResource("4_tbgi4")]
-bullet = ExtResource("5_tbgi4")
 
 [connection signal="gameover" from="Player" to="." method="_on_player_gameover"]

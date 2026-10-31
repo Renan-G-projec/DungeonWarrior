@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 TransitionManager="*uid://c5gec8i86cq1f"
+Screenshake="*uid://bi6udw2f7k28k"
 
 [display]
 
