@@ -14,10 +14,12 @@ func _ready() -> void:
 	tween.tween_property($Sprite2D, "scale", Vector2(1.2, 0.8), 1.2)
 
 func _process(delta: float) -> void:
-	if !Input.is_action_just_pressed("Interact"): return
 	if !has_overlapping_bodies(): return
-	var player: Player = get_overlapping_bodies()[0] as Player
 	
-	assert(player != null, "Error: another object is in the player layer and the player tryed to interact with the door.")
+	if Input.is_action_just_pressed("Interact") || %TriggerArea.has_overlapping_bodies():
+		var player: Player = get_overlapping_bodies()[0] as Player
 	
-	player_interacted.emit()
+		assert(player != null, "Error: another object is in the player layer and the player tryed to interact with the door.")
+	
+		player_interacted.emit()
+		set_process(false)

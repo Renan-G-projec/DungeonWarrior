@@ -12,7 +12,7 @@ extends CanvasLayer
 		current_room.player_interacted_with_door.connect(_on_player_interacted_with_door)
 		current_room.enemy_died.connect(_on_room_enemy_died)
 
-		move_child(current_room, 0)
+		$Node.move_child(current_room, 0)
 
 # Shoudl hold Room: [ enemy/bat enemy/slime... ] etc
 var _persistance_keys: Dictionary[String, Array] = {}
@@ -22,7 +22,7 @@ func change_current_room(room: String, door_id: int) -> void:
 
 	var room_scene: PackedScene = load(room)
 	var room_instance: Room = room_scene.instantiate()
-	add_child(room_instance)
+	$Node.add_child(room_instance)
 	
 	if _persistance_keys.has(room_instance.scene_file_path):
 		room_instance.remove_enemies(_persistance_keys[room_instance.scene_file_path])

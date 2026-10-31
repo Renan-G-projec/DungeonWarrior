@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1p6d"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urb8f"]
+size = Vector2(8, 8)
+
 [node name="Door" type="Area2D" unique_id=1475764445]
 script = ExtResource("1_urb8f")
 
@@ -18,3 +21,10 @@ shape = SubResource("RectangleShape2D_d1p6d")
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=624761849]
 position = Vector2(-12, 0)
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=533129869]
+unique_name_in_owner = true
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1257337267]
+shape = SubResource("RectangleShape2D_urb8f")
