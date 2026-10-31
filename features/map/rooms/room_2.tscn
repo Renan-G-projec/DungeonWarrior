@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_u5s2s"]
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_ked8u"]
-[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/sllime.tscn" id="3_ked8u"]
+[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/slime.tscn" id="3_ked8u"]
 
 [node name="Room2" unique_id=1991131083 instance=ExtResource("1_u5s2s")]
 

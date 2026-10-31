@@ -27,6 +27,10 @@ func _ready() -> void:
 	active_timer.timeout.connect(func(): _set_state(State.IDLE))
 	cooldown_timer.timeout.connect(func(): _set_state(State.IDLE))
 
+func start() -> void:
+	if state != State.IDLE:
+		return
+	_set_state(State.TELEGRAPH)
 func _set_state(new_state: State) -> void:
 	state = new_state
 	match state:
@@ -37,9 +41,16 @@ func _set_state(new_state: State) -> void:
 			shape.set_deferred("disabled", true)
 			telegraph_timer.start(telegraph_time)
 			queue_redraw()
-		State.COOLDOWN:
+		State.ACTIVE:
 			shape.set_deferred("disabled", false)
 			active_timer.start(active_time)
+			queue_redraw()
+			await get_tree().physics_frame
+			await get_tree().physics_frame
+			_hit_overlapping()
+		State.COOLDOWN:
+			shape.set_deferred("disabled", true)
+			cooldown_timer.start(cooldown_time)
 			queue_redraw()
 	state_changed.emit(state)
 	

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="4_2u27a"]
 [ext_resource type="PackedScene" uid="uid://c2h4nhdibigug" path="res://features/enemies/ghost.tscn" id="5_alcp6"]
 [ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="6_66xuq"]
-[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/sllime.tscn" id="7_d6b46"]
+[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/slime.tscn" id="7_d6b46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y6uj"]
 size = Vector2(8, 8)

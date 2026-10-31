@@ -77,7 +77,9 @@ func _physics_process(delta: float) -> void:
 			_timer = _timer - delta
 			_follow_target(delta)
 			update_beam(2.0 + sin(Time.get_ticks_msec() * 0.03))
-			if _timer <= 0.0:
+			if _timer <= 0.0 and not ray.is_colliding():
+				_set_state(State.COOLDOWN)
+			elif _timer <= 0.0:
 				_set_state(State.FIRING)
 		State.FIRING:
 			_timer = _timer - delta
@@ -90,11 +92,7 @@ func _physics_process(delta: float) -> void:
 			_timer = _timer - delta
 			if _timer <= 0.0:
 				_set_state(State.IDLE)
-
-
-
-
-
+				
 func _set_movement(enabled: bool) -> void:
 	if movement_component:
 		movement_component.set_physics_process(enabled)
@@ -117,9 +115,17 @@ func update_beam(width: float) -> void:
 
 func _apply_damage(delta: float) -> void: 
 	_tick = _tick - delta
-	if _tick > 0.0 or not ray.is_colliding():
+	if _tick > 0.0: 
+		return
+	if not ray.is_colliding():
+		print("Laser HIT NOTHING")
 		return
 	_tick = damage_interval
+	var hit = ray.get_collider()
+	print("LASER: hit ", hit, " children: ", hit.get_children())
 	var health = ray.get_collider().get_node_or_null("HealthComponent")
 	if health:
-		health.take_damage(damage, attacker)	
+		print("LASER: calling take_damage")
+		health.take_damage(damage, attacker)
+	else:
+		print("LASER: no HealthComponent on ", hit.name)	
