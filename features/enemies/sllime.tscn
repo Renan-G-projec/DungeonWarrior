@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://bjl2iourvh2df"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_4i6x1"]
-[ext_resource type="Texture2D" uid="uid://cm5rqn14rm12i" path="res://features/enemies/ememies/base_enemy.png" id="2_7q2hn"]
-[ext_resource type="Texture2D" uid="uid://chnl7paxiseom" path="res://features/enemies/ememies/slime.png" id="2_qnquc"]
+[ext_resource type="Texture2D" uid="uid://cm5rqn14rm12i" path="res://features/enemies/enemies/base_enemy.png" id="2_7q2hn"]
+[ext_resource type="Texture2D" uid="uid://chnl7paxiseom" path="res://features/enemies/enemies/slime.png" id="2_qnquc"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_7q2hn"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_763tu"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_ogmke"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="6_kt6wg"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_li5pk"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_1hu7m"]
+[ext_resource type="Script" uid="uid://btsspixrplhwy" path="res://features/components/burning_component.gd" id="9_7q2hn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_763tu"]
 atlas = ExtResource("2_7q2hn")
@@ -162,6 +163,12 @@ script = ExtResource("5_ogmke")
 script = ExtResource("6_kt6wg")
 projectile = ExtResource("7_li5pk")
 muzzle = NodePath("../Muzzle")
+
+[node name="BurningComponent" type="Node" parent="." unique_id=1053914919 node_paths=PackedStringArray("damage_target", "sprite")]
+script = ExtResource("9_7q2hn")
+damage_target = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+metadata/_custom_type_script = "uid://btsspixrplhwy"
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_1hu7m")]
 offset_top = 6.0

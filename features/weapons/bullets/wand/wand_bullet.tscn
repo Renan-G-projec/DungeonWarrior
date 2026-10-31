@@ -7,7 +7,7 @@
 [node name="WandBullet" unique_id=631913319 instance=ExtResource("1_34o4i")]
 collision_mask = 18
 script = ExtResource("2_qtvb0")
-type = 1
+type = 0
 damage = 4.0
 
 [node name="Sprite2D" parent="." index="1" unique_id=19741843]
