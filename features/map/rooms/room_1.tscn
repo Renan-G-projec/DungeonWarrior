@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_sh5sn"]
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_be3bm"]
-[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/slime.tscn" id="3_be3bm"]
-[ext_resource type="PackedScene" uid="uid://c2h4nhdibigug" path="res://features/enemies/ghost.tscn" id="4_xbl7t"]
+[ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="3_be3bm"]
 
 [node name="Room1" unique_id=1991131083 instance=ExtResource("1_sh5sn")]
 
@@ -18,8 +17,5 @@ position = Vector2(76, 77)
 rotation = 1.5707964
 target_scene = "uid://bkumstfib4vw0"
 
-[node name="Slime" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
-position = Vector2(116, 45)
-
-[node name="Ghost" parent="." index="4" unique_id=1090532953 instance=ExtResource("4_xbl7t")]
-position = Vector2(80, 29)
+[node name="Bat" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
+position = Vector2(107, 37)

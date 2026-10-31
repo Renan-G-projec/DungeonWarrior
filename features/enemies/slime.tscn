@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_7q2hn"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_763tu"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_ogmke"]
-[ext_resource type="PackedScene" uid="uid://bhtmdls4jstau" path="res://features/enemies/AOE_attack.tscn" id="7_egdmm"]
+[ext_resource type="PackedScene" uid="uid://bhtmdls4jstau" path="res://features/components/AOE_attack.tscn" id="7_egdmm"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_1hu7m"]
 [ext_resource type="Script" uid="uid://btsspixrplhwy" path="res://features/components/burning_component.gd" id="9_7q2hn"]
 
