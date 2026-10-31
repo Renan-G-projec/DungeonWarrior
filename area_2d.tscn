@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bhtmdls4jstau"]
+
+[ext_resource type="Script" uid="uid://dd4tuc6b3xbua" path="res://features/AOE_attack.gd" id="1_gf172"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xslbe"]
+radius = 23.021729
+
+[node name="AOEAttack" type="Area2D" unique_id=1317857365]
+script = ExtResource("1_gf172")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329940709]
+shape = SubResource("CircleShape2D_xslbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=551940237]
+
+[node name="TelegraphTimer" type="Timer" parent="." unique_id=2086836299]
+one_shot = true
+
+[node name="ActiveTimer" type="Timer" parent="." unique_id=274112120]
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=352733129]
+one_shot = true
