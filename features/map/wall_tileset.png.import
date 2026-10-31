@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm5rqn14rm12i"
-path="res://.godot/imported/base_enemy.png-f51627ed5856e37bcfc0527f82a9610b.ctex"
+uid="uid://ciengiylfguo0"
+path="res://.godot/imported/wall_tileset.png-f138ff2f4b67a06f573e4e43d1f2cc37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/ememies/base_enemy.png"
-dest_files=["res://.godot/imported/base_enemy.png-f51627ed5856e37bcfc0527f82a9610b.ctex"]
+source_file="res://features/map/wall_tileset.png"
+dest_files=["res://.godot/imported/wall_tileset.png-f138ff2f4b67a06f573e4e43d1f2cc37.ctex"]
 
 [params]
 

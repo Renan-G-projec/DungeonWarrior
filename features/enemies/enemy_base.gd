@@ -46,6 +46,7 @@ func _on_health_component_died() -> void:
 	# We need to check this otherwise when calling queue free or if the player exits before the animation ends this will change the animation or crash the engine because %Sprite will also be null.
 	%TriggerArea.monitoring = false
 	await %Sprite.animation_finished
+	Screenshake.shake(1)
 	queue_free()
 
 func _on_health_component_took_damage(_character, _damage: float, _position: Vector2) -> void:

@@ -3,19 +3,18 @@
 [ext_resource type="Script" uid="uid://dftg4lre5dobe" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dn1dfydjjjmu4" path="res://features/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://hbugebch8c06" path="res://features/map/rooms/room_1.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://dn87535agm6jo" path="res://features/weapons/weapons/sword.tscn" id="4_jyhfs"]
 
-[node name="Main" type="Node2D" unique_id=450768612 node_paths=PackedStringArray("current_room")]
+[node name="Main" type="CanvasLayer" unique_id=198682224 node_paths=PackedStringArray("current_room")]
 script = ExtResource("1_o5qli")
-current_room = NodePath("Room1")
+current_room = NodePath("Node/Room1")
 
-[node name="Room1" parent="." unique_id=1991131083 instance=ExtResource("2_jyhfs")]
+[node name="Node" type="Node2D" parent="." unique_id=1327179865]
+y_sort_enabled = true
 
-[node name="Player" parent="." unique_id=2017001837 node_paths=PackedStringArray("weapon") instance=ExtResource("2_0wfyh")]
+[node name="Room1" parent="Node" unique_id=1991131083 instance=ExtResource("2_jyhfs")]
+
+[node name="Player" parent="Node" unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true
 position = Vector2(27, 31)
-weapon = NodePath("sword")
 
-[node name="sword" parent="Player" unique_id=767143745 instance=ExtResource("4_jyhfs")]
-
-[connection signal="gameover" from="Player" to="." method="_on_player_gameover"]
+[connection signal="gameover" from="Node/Player" to="." method="_on_player_gameover"]

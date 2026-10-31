@@ -26,7 +26,7 @@ func attack():
 	boomerang_bullet._player_ref = get_tree().get_first_node_in_group("player")
 	
 	attacked.emit()
-	get_tree().root.add_child(boomerang_bullet)
+	get_tree().current_scene.add_child(boomerang_bullet)
 
 func _to_mouse() -> Vector2:
 	return (get_global_mouse_position() - global_position)

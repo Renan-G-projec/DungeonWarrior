@@ -7,6 +7,7 @@
 radius = 3.0
 
 [node name="BulletBase" type="Area2D" unique_id=631913319]
+top_level = true
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_npubr")

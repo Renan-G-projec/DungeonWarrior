@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b3xoj5s42yyel"]
+
+[ext_resource type="PackedScene" uid="uid://hjqp6neu5qh2" path="res://features/weapons/bullets/bullet_base.tscn" id="1_34o4i"]
+[ext_resource type="Texture2D" uid="uid://cax3k7hm8v36u" path="res://features/weapons/bullets/wand/wand_bullet.png" id="2_e1w2c"]
+[ext_resource type="Script" uid="uid://brmro2rtuetsb" path="res://features/weapons/bullets/wand/wand_bullet.gd" id="2_qtvb0"]
+
+[node name="WandBullet" unique_id=631913319 instance=ExtResource("1_34o4i")]
+collision_mask = 18
+script = ExtResource("2_qtvb0")
+type = 1
+damage = 4.0
+
+[node name="Sprite2D" parent="." index="1" unique_id=19741843]
+scale = Vector2(1, 1)
+texture = ExtResource("2_e1w2c")
+hframes = 5

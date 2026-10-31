@@ -98,6 +98,7 @@ func _on_health_component_took_damage(
 ) -> void:
 	%FeelComponent.squash_animation($Sprite2D, Vector2(1.4, 0.6), 0.3)
 	%FeelComponent.hit_animation($Sprite2D, 0.2)
+	Screenshake.shake(1)
 
 
 func _on_health_component_died() -> void:

@@ -30,7 +30,7 @@ func attack() -> void:
 	if _is_recharging || _is_on_cooldown: return
 	
 	var instantiated_bullet = bullet.instantiate()
-	get_tree().root.add_child(instantiated_bullet)
+	get_tree().current_scene.add_child(instantiated_bullet)
 	
 	instantiated_bullet.velocity = _to_mouse().normalized() * bullet_velocity
 	instantiated_bullet.global_position = %BulletSpawn.global_position

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chnl7paxiseom"
-path="res://.godot/imported/slime.png-09275928dcbb5480e4ab1fb5bf64390c.ctex"
+uid="uid://bqc475hcf28ji"
+path="res://.godot/imported/ghost_death.png-b7244f412d750d52f939fba6a2c4ae68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/ememies/slime.png"
-dest_files=["res://.godot/imported/slime.png-09275928dcbb5480e4ab1fb5bf64390c.ctex"]
+source_file="res://features/enemies/enemies/ghost_death.png"
+dest_files=["res://.godot/imported/ghost_death.png-b7244f412d750d52f939fba6a2c4ae68.ctex"]
 
 [params]
 
