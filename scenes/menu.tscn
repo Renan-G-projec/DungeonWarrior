@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies/ghost.tscn" id="3_g3eks"]
 [ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="4_v86rl"]
 [ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="5_13sgg"]
+[ext_resource type="Texture2D" uid="uid://cqkhdvyrnvfwo" path="res://scenes/title.png" id="6_13sgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
 content_margin_left = 0.0
@@ -47,6 +48,18 @@ position = Vector2(100, 40)
 [node name="Lifebar" parent="BackgroundWall/Ghost" index="11" unique_id=1262679545]
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=383157169]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012617188, 0.012617188, 0.012617188, 0.59607846)
+
+[node name="Title" type="Sprite2D" parent="." unique_id=581450365]
+position = Vector2(100, 24)
+texture = ExtResource("6_13sgg")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=355182650]
 offset_right = 41.0
 offset_bottom = 90.0
@@ -72,7 +85,6 @@ ignore_camera_scroll = true
 screen_offset = Vector2(20, 45)
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Control/Parallax2D" unique_id=1583942385]
-self_modulate = Color(1, 0.6392157, 0.6313726, 1)
 texture = ExtResource("2_mhnvy")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control" unique_id=1772843465]
@@ -121,6 +133,9 @@ theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Quit"
 fit_content = true
+
+[node name="Player" type="Sprite2D" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1039817937]
+position = Vector2(98, 45)
 
 [editable path="BackgroundWall/Bat"]
 [editable path="BackgroundWall/Mushroom"]
