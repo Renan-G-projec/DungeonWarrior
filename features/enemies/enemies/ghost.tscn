@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dga3ik7pwtbn7"]
+
+[ext_resource type="PackedScene" uid="uid://dq3vfwc6qgd5e" path="res://features/enemies/enemy_base.tscn" id="1_wolsc"]
+[ext_resource type="Texture2D" uid="uid://bqc475hcf28ji" path="res://features/enemies/enemies/ghost_death.png" id="2_wspua"]
+[ext_resource type="Texture2D" uid="uid://bsedhtyri2oav" path="res://features/enemies/enemies/ghost.png" id="3_0jei7"]
+[ext_resource type="PackedScene" uid="uid://bp4482rmj32qo" path="res://features/components/lazer_attack.tscn" id="4_f1y1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypydx"]
+atlas = ExtResource("2_wspua")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cts1"]
+atlas = ExtResource("2_wspua")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_figya"]
+atlas = ExtResource("2_wspua")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smrxp"]
+atlas = ExtResource("2_wspua")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaude"]
+atlas = ExtResource("2_wspua")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msyff"]
+atlas = ExtResource("3_0jei7")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mim6n"]
+atlas = ExtResource("3_0jei7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2js8"]
+atlas = ExtResource("3_0jei7")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul6bh"]
+atlas = ExtResource("3_0jei7")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cf6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypydx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cts1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_figya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smrxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaude")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msyff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mim6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2js8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul6bh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msyff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mim6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2js8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul6bh")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Ghost" unique_id=651179315 instance=ExtResource("1_wolsc")]
+
+[node name="Sprite" parent="." index="1" unique_id=1702035286]
+position = Vector2(1, 6)
+sprite_frames = SubResource("SpriteFrames_1cf6x")
+
+[node name="LazerAttack" parent="." index="11" unique_id=528679731 instance=ExtResource("4_f1y1p")]
+position = Vector2(1, 6)
+rotation = -1.5707964

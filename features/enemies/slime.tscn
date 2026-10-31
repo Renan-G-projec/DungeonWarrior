@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_ogmke"]
 [ext_resource type="PackedScene" uid="uid://bhtmdls4jstau" path="res://features/enemies/AOE_attack.tscn" id="7_egdmm"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_1hu7m"]
+[ext_resource type="Script" uid="uid://btsspixrplhwy" path="res://features/components/burning_component.gd" id="9_7q2hn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_763tu"]
 atlas = ExtResource("2_7q2hn")
@@ -158,6 +159,12 @@ metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
 script = ExtResource("5_ogmke")
 
 [node name="AOEAttack" parent="." unique_id=1317857365 instance=ExtResource("7_egdmm")]
+
+[node name="BurningComponent" type="Node" parent="." unique_id=1053914919 node_paths=PackedStringArray("damage_target", "sprite")]
+script = ExtResource("9_7q2hn")
+damage_target = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+metadata/_custom_type_script = "uid://btsspixrplhwy"
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_1hu7m")]
 offset_top = 6.0

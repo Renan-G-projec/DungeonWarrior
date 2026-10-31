@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://dgn7amf5jlfso"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_nxvm5"]
-[ext_resource type="Texture2D" uid="uid://crw556fsdriyo" path="res://features/enemies/ememies/mushroom.png" id="2_cqner"]
-[ext_resource type="Texture2D" uid="uid://bpybb7c23boox" path="res://features/enemies/ememies/mushroom_death.png" id="2_yoc6d"]
+[ext_resource type="Texture2D" uid="uid://crw556fsdriyo" path="res://features/enemies/enemies/mushroom.png" id="2_cqner"]
+[ext_resource type="Texture2D" uid="uid://bpybb7c23boox" path="res://features/enemies/enemies/mushroom_death.png" id="2_yoc6d"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_yoc6d"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_eyssa"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_hm7j4"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="6_l5eg2"]
 [ext_resource type="PackedScene" uid="uid://dc7ybwwl227dc" path="res://features/enemies/projectile.tscn" id="7_vqgh3"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_t5dbo"]
+[ext_resource type="Script" uid="uid://btsspixrplhwy" path="res://features/components/burning_component.gd" id="9_yoc6d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyssa"]
 atlas = ExtResource("2_yoc6d")
@@ -146,9 +147,11 @@ autoplay = "run"
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1136076360]
+visible = false
 shape = SubResource("CircleShape2D_d1p6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216348714]
+visible = false
 shape = SubResource("RectangleShape2D_d1p6d")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1026552834]
@@ -170,6 +173,12 @@ script = ExtResource("5_hm7j4")
 script = ExtResource("6_l5eg2")
 projectile = ExtResource("7_vqgh3")
 muzzle = NodePath("../Muzzle")
+
+[node name="BurningComponent" type="Node" parent="." unique_id=206196558 node_paths=PackedStringArray("damage_target", "sprite")]
+script = ExtResource("9_yoc6d")
+damage_target = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+metadata/_custom_type_script = "uid://btsspixrplhwy"
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_t5dbo")]
 offset_top = 6.0
