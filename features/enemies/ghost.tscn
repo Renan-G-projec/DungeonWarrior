@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2h4nhdibigug"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_xphp3"]
+[ext_resource type="Texture2D" uid="uid://bv7b0wc2t0fod" path="res://features/enemies/enemies/ghost_attack.png" id="2_1van2"]
 [ext_resource type="Texture2D" uid="uid://bqc475hcf28ji" path="res://features/enemies/enemies/ghost_death.png" id="2_xphp3"]
 [ext_resource type="Texture2D" uid="uid://bsedhtyri2oav" path="res://features/enemies/enemies/ghost.png" id="3_1van2"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_2bdyy"]
@@ -8,6 +9,30 @@
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_2cts1"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="8_xaude"]
 [ext_resource type="PackedScene" uid="uid://bp4482rmj32qo" path="res://features/components/lazer_attack.tscn" id="9_2bdyy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixxi5"]
+atlas = ExtResource("2_1van2")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qx02"]
+atlas = ExtResource("2_1van2")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7bse"]
+atlas = ExtResource("2_1van2")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_661hk"]
+atlas = ExtResource("2_1van2")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4t3p"]
+atlas = ExtResource("2_1van2")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyfah"]
+atlas = ExtResource("2_1van2")
+region = Rect2(64, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bdyy"]
 atlas = ExtResource("2_xphp3")
@@ -28,6 +53,18 @@ region = Rect2(27, 0, 9, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_smrxp"]
 atlas = ExtResource("2_xphp3")
 region = Rect2(36, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pkh7"]
+atlas = ExtResource("2_1van2")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1uc4"]
+atlas = ExtResource("2_1van2")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh0wu"]
+atlas = ExtResource("2_1van2")
+region = Rect2(48, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xaude"]
 atlas = ExtResource("3_1van2")
@@ -65,6 +102,34 @@ region = Rect2(24, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ixxi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qx02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7bse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_661hk")
+}],
+"loop": 1,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4t3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyfah")
+}],
+"loop": 1,
+"name": &"cooldown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2bdyy")
 }, {
 "duration": 1.0,
@@ -81,6 +146,20 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pkh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1uc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh0wu")
+}],
+"loop": 1,
+"name": &"firing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -137,7 +216,7 @@ collision_mask = 4
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1555947550]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_xslbe")
-animation = &"run"
+animation = &"cooldown"
 autoplay = "run"
 
 [node name="TriggerArea" type="Area2D" parent="." unique_id=1655906864]
@@ -165,7 +244,7 @@ metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
 script = ExtResource("5_2cts1")
 
 [node name="LaserAttack" parent="." unique_id=528679731 instance=ExtResource("9_2bdyy")]
-rotation = 1.5707964
+rotation = 4.712389
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_xaude")]
 offset_top = 6.0

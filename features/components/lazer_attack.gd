@@ -27,6 +27,9 @@ enum State {IDLE, CHARGING, FIRING, COOLDOWN}
 @export var warn_color := Color(1.0, 0.3, 0.3, 0.5)
 @export var fire_color := Color(1.0, 1.0, 1.0, 1.0)
 
+@export var faces_right := true
+@export var flip_deadzone := 4.0
+
 var state = State.IDLE
 var target: Node2D
 var attacker: Node
@@ -41,7 +44,9 @@ var _hitbox: ShapeCast2D
 
 func _ready() -> void:
 	attacker = get_parent()
+	print("attacker", attacker)
 	ray.target_position = Vector2(max_length, 0)
+	ray.set_collision_mask_value(5, true)
 	beam.visible = false	
 	_timer = idle_delay
 	
@@ -100,7 +105,7 @@ func _cancel_attack() -> void:
 	_set_state(State.COOLDOWN)
 
 func _physics_process(delta: float) -> void:
-
+	
 	if target == null or not is_instance_valid(target):
 		target = get_tree().get_first_node_in_group(target_group) as Node2D
 		if target == null:
@@ -114,13 +119,21 @@ func _physics_process(delta: float) -> void:
 					if _timer <= 0.0:
 						_set_state(State.IDLE)
 			return
-
+	
+	var dx := target.global_position.x - global_position.x
+	
+	if absf(dx) < flip_deadzone:
+		return
+	
+	var player_is_right := dx > 0.0
+	%Sprite.flip_h = (player_is_right != faces_right)	
+	
 	match state:
 		State.IDLE:
 			_timer -= delta
 			if _timer <= 0.0 and global_position.distance_to(target.global_position) <= detection_range and (not require_line_of_sight or _has_line_of_sight()):
 				_set_state(State.CHARGING)
-
+			%Sprite.play("idle")
 		State.CHARGING:
 			_timer -= delta
 			if global_position.distance_to(target.global_position) > detection_range * leash_multiplier:
@@ -132,6 +145,7 @@ func _physics_process(delta: float) -> void:
 			update_beam(lerpf(warn_width, warn_width * 2.5, progress))
 			if _timer <= 0.0:
 				_set_state(State.FIRING)
+			%Sprite.play("charging")
 
 		State.FIRING:
 			_timer -= delta
@@ -141,12 +155,14 @@ func _physics_process(delta: float) -> void:
 			_apply_damage(delta)
 			if _timer <= 0.0:
 				_set_state(State.COOLDOWN)
+				%Sprite.play("firing")
 
 		State.COOLDOWN:
 			_timer -= delta
 			if _timer <= 0.0:
 				_set_state(State.IDLE)
-				
+				%Sprite.play("cooldown")
+
 func _set_movement(enabled: bool) -> void:
 	if movement_component:
 		movement_component.set_physics_process(enabled)
@@ -168,14 +184,17 @@ func _has_line_of_sight() -> bool:
 	return result.is_empty() or result.collider == target
 	
 func update_beam(width: float) -> void:
+	ray.target_position = Vector2(max_length, 0)
 	ray.force_raycast_update()
-	var end := ray.target_position
+	var start := to_local(ray.global_position)
+	var end := to_local(ray.to_global(ray.target_position))
 	if ray.is_colliding():
 		end = to_local(ray.get_collision_point())
 	beam.width = width
 	beam.points = PackedVector2Array([Vector2.ZERO, end])
 
 func _apply_damage(delta: float) -> void: 
+	
 	_tick = _tick - delta
 	if _tick > 0.0: 
 		return
