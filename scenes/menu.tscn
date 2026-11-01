@@ -60,15 +60,17 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 0.59607846)
 position = Vector2(100, 24)
 texture = ExtResource("6_13sgg")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=355182650]
+[node name="MainPanel" type="MarginContainer" parent="." unique_id=355182650]
+unique_name_in_owner = true
 offset_right = 41.0
 offset_bottom = 90.0
+offset_transform_enabled = true
 
-[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1130631975]
+[node name="Panel" type="Panel" parent="MainPanel" unique_id=1130631975]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mhnvy")
 
-[node name="Control" type="Panel" parent="MarginContainer" unique_id=1760481828]
+[node name="Control" type="Panel" parent="MainPanel" unique_id=1760481828]
 custom_minimum_size = Vector2(40, 90)
 clip_contents = true
 layout_mode = 2
@@ -77,17 +79,17 @@ size_flags_vertical = 3
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ouk20")
 
-[node name="Parallax2D" type="Parallax2D" parent="MarginContainer/Control" unique_id=696892843]
+[node name="Parallax2D" type="Parallax2D" parent="MainPanel/Control" unique_id=696892843]
 repeat_size = Vector2(8, 8)
 autoscroll = Vector2(4, 4)
 repeat_times = 15
 ignore_camera_scroll = true
 screen_offset = Vector2(20, 45)
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Control/Parallax2D" unique_id=1583942385]
+[node name="Sprite2D" type="Sprite2D" parent="MainPanel/Control/Parallax2D" unique_id=1583942385]
 texture = ExtResource("2_mhnvy")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control" unique_id=1772843465]
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/Control" unique_id=1772843465]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,20 +101,20 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/Control/MarginContainer" unique_id=1826486308]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainPanel/Control/MarginContainer" unique_id=1826486308]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="PlayButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=849886830]
+[node name="PlayButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=849886830]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Play"
 fit_content = true
 
-[node name="SettingsButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1949046619]
+[node name="SettingsButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=1949046619]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
@@ -120,22 +122,104 @@ text = "Settings
 "
 fit_content = true
 
-[node name="CreditsButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=327126180]
+[node name="CreditsButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=327126180]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Credits"
 fit_content = true
 
-[node name="ExitButton" type="RichTextLabel" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
+[node name="ExitButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 bbcode_enabled = true
 text = "Quit"
 fit_content = true
 
-[node name="Player" type="Sprite2D" parent="MarginContainer/Control/MarginContainer/ButtonsContainer" unique_id=1039817937]
-position = Vector2(98, 45)
+[node name="SettingsPanel" type="MarginContainer" parent="." unique_id=644362007]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 90.0
+grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(40, 0)
+
+[node name="Panel" type="Panel" parent="SettingsPanel" unique_id=1804697171]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhnvy")
+
+[node name="Control" type="Panel" parent="SettingsPanel" unique_id=573435554]
+custom_minimum_size = Vector2(40, 90)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_ouk20")
+
+[node name="Parallax2D" type="Parallax2D" parent="SettingsPanel/Control" unique_id=902248925]
+repeat_size = Vector2(8, 8)
+autoscroll = Vector2(4, 4)
+repeat_times = 15
+ignore_camera_scroll = true
+screen_offset = Vector2(20, 45)
+
+[node name="Sprite2D" type="Sprite2D" parent="SettingsPanel/Control/Parallax2D" unique_id=1676429158]
+texture = ExtResource("2_mhnvy")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel/Control" unique_id=1857425634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="SettingsContainer" type="VBoxContainer" parent="SettingsPanel/Control/MarginContainer" unique_id=902271419]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MasterVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=301395430]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "Master [color=yellow]100%[/color]"
+fit_content = true
+
+[node name="SoundVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=1341362965]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "SFX [color=yellow]100%[/color]"
+fit_content = true
+
+[node name="MusicVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=1524298406]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "Music  [color=yellow]100%[/color]"
+fit_content = true
+
+[node name="BackButton" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=1765194130]
+layout_mode = 2
+theme = ExtResource("3_4ytvr")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "Back"
+fit_content = true
 
 [editable path="BackgroundWall/Bat"]
 [editable path="BackgroundWall/Mushroom"]
