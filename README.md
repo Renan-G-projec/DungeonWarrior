@@ -1,7 +1,7 @@
 # DungeonWarrior
 A simple 8-bit dungeon game made in godot for hackclub thirdspace by 2 people
 
-![Screenshot](.github/screenshot.png)
+![Screenshot](.github/Slime.png)
 
 ## How to play
 Access the live demo at https://renan-g.itch.io/dungeonwarrior :)
@@ -20,6 +20,25 @@ The game have different types of bullets, and weapons in general. There's a bow 
 We have inteligent enemies with raycasting and state machines! 
 Theres slimes, chests, bats and shadow enemies to fight
 There are a transition manager with a custom callback function
+
+## Weapons
+The game have the following weapons:
+- Boomerang: Click and then it shoots
+- Magic wand: Have 3 states (fire, which burns the enemies; psyquic, which is a little teleguiated; ice, which slows downs the enemies). You can switch by pressing e.
+- Sword: The one which you spawn with, Has a little knockback
+- Bow: Shoots by distance... causes some considerable damage
+
+![Sword](.github/Sword.png)
+
+## Enemies
+There are these enemies:
+- The boss with a pull attack
+- The Slime which causes a little explosion
+- The bat which rushes on the player
+- The Ghost which uses a laser attack
+
+![Boss](.github/Boss.png)
+![Bat](.github/Bat.png)
 
 ## Notes:
 The door has a placeholder sprite. You can interact with it by pressing E near it!
