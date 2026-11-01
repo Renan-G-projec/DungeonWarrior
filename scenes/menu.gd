@@ -6,7 +6,7 @@ extends Node
 	set(new_state):
 		current_state = new_state
 		_restore_button_animation(_current_button)
-		_previous_text = _buttons[current_state][current_button_index].text
+		_previous_text = _buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)].text
 		current_button_index = 0
 		
 
@@ -22,7 +22,6 @@ var _buttons_actions: Dictionary = {
 	"Menu": [
 		(func() -> void: TransitionManager.flash(func() -> void: get_tree().change_scene_to_file("res://scenes/main.tscn"))),
 		(func() -> void: _go_to_settings()),
-		(func() -> void: print("To implement")),
 		(func() -> void: get_tree().quit())
 	],
 	"Settings": [
@@ -39,11 +38,11 @@ var _current_button: RichTextLabel
 	set(val):
 		if val == current_button_index: return
 		
-		_previous_button = _buttons[current_state][current_button_index]
-		_restore_button_animation(_buttons[current_state][current_button_index])
+		_previous_button = _buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)]
+		_restore_button_animation(_buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)])
 		current_button_index = clamp(val, 0, _buttons[current_state].size() - 1)
-		_make_button_hover_animation(_buttons[current_state][current_button_index])
-		_current_button = _buttons[current_state][current_button_index]
+		_make_button_hover_animation(_buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)])
+		_current_button = _buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)]
 		
 		$SoundPlayer.play()
 		
@@ -52,7 +51,7 @@ func _get_hovered_effect(string: String) -> String:
 	return "[wave amp=1.0 freq=4.0 connected=0][color=aqua]%s[/color][/wave]" % string
 
 func _ready() -> void:
-	_make_button_hover_animation(_buttons[current_state][current_button_index])
+	_make_button_hover_animation(_buttons[current_state][min(current_button_index, _buttons[current_state].size() - 1)])
 	current_button_index = 0
 	
 	for button in _buttons["Menu"]:

@@ -124,13 +124,6 @@ text = "Settings
 "
 fit_content = true
 
-[node name="CreditsButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=327126180]
-layout_mode = 2
-theme = ExtResource("3_4ytvr")
-bbcode_enabled = true
-text = "Credits"
-fit_content = true
-
 [node name="ExitButton" type="RichTextLabel" parent="MainPanel/Control/MarginContainer/ButtonsContainer" unique_id=1321591003]
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
