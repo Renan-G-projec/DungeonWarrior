@@ -17,14 +17,13 @@ enum State {IDLE, CHARGING, FIRING, COOLDOWN}
 @export var warn_width := 3.0
 @export var track_speed := 3.0
 @export var sweep_speed := 0.8 
-
 @export var idle_delay := 1.9
 @export var detection_range := 600.0
 @export var leash_multiplier := 1.5
 @export var require_line_of_sight := true
 @export var target_group := "player"
 @export var movement_component: Node
-
+@export var sweeps := false
 @export var warn_color := Color(1.0, 0.3, 0.3, 0.5)
 @export var fire_color := Color(1.0, 1.0, 1.0, 1.0)
 
@@ -124,23 +123,20 @@ func _physics_process(delta: float) -> void:
 
 		State.CHARGING:
 			_timer -= delta
-
 			if global_position.distance_to(target.global_position) > detection_range * leash_multiplier:
 				_cancel_attack()
 				return
-
 			if _timer > lock_time:
 				_follow_target(delta)
-
 			var progress := 1.0 - clampf(_timer / charge_time, 0.0, 1.0)
 			update_beam(lerpf(warn_width, warn_width * 2.5, progress))
-
 			if _timer <= 0.0:
 				_set_state(State.FIRING)
 
 		State.FIRING:
 			_timer -= delta
-			global_rotation += _sweep_dir * sweep_speed * delta
+			if sweeps:
+				global_rotation += _sweep_dir * sweep_speed * delta
 			update_beam(beam_width)
 			_apply_damage(delta)
 			if _timer <= 0.0:

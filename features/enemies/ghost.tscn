@@ -166,9 +166,6 @@ script = ExtResource("5_2cts1")
 
 [node name="LaserAttack" parent="." unique_id=528679731 instance=ExtResource("9_2bdyy")]
 rotation = 1.5707964
-damage = 20
-max_length = 50.0
-sweep_speed = 0.2
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("8_xaude")]
 offset_top = 6.0

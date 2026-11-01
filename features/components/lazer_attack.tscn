@@ -4,6 +4,7 @@
 
 [node name="LazerAttack" type="Node2D" unique_id=528679731]
 script = ExtResource("1_ssu08")
+fire_color = Color(0.6509804, 0.03529412, 0.023529412, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=375110276]
 
