@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 TransitionManager="*uid://c5gec8i86cq1f"
 Screenshake="*uid://bi6udw2f7k28k"
+Settings="*uid://cwu6wjqf53d84"
 
 [display]
 
