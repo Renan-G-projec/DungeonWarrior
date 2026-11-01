@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://depkumqctdya2"]
 
 [ext_resource type="Script" uid="uid://bk41y4twk0kt8" path="res://features/enemies/enemy_base.gd" id="1_5qp1t"]
-[ext_resource type="Texture2D" uid="uid://hqk1nlyprw7j" path="res://features/enemies/enemies/bat_death.png" id="2_cwv7e"]
-[ext_resource type="Texture2D" uid="uid://dloktptkc5rvd" path="res://features/enemies/enemies/bat.png" id="2_ps300"]
+[ext_resource type="Texture2D" uid="uid://hqk1nlyprw7j" path="res://features/enemies/enemies_sprites/bat_death.png" id="2_cwv7e"]
+[ext_resource type="Texture2D" uid="uid://dloktptkc5rvd" path="res://features/enemies/enemies_sprites/bat.png" id="2_ps300"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_cwv7e"]
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_e2f2m"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="5_tde07"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="7_5oll1"]
 [ext_resource type="PackedScene" uid="uid://d0wlyhenrdpf7" path="res://features/components/dash_attack.tscn" id="8_ps300"]
+[ext_resource type="Script" uid="uid://ccer7p7p1ma36" path="res://features/components/freeze_component.gd" id="9_dkdks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2f2m"]
 atlas = ExtResource("2_cwv7e")
@@ -164,6 +165,13 @@ bind_health_component = NodePath("../HealthComponent")
 
 [node name="DashAttack" parent="." unique_id=1644405037 instance=ExtResource("8_ps300")]
 cooldown_time = 0.5
+
+[node name="FreezeComponent" type="Node" parent="." unique_id=163714267 node_paths=PackedStringArray("health_component", "sprite", "target_to_freeze")]
+script = ExtResource("9_dkdks")
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+target_to_freeze = NodePath("..")
+metadata/_custom_type_script = "uid://ccer7p7p1ma36"
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

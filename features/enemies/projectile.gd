@@ -9,29 +9,28 @@ var direction: float = 0.0
 
 func _ready() -> void:
 	await get_tree().create_timer(lifetime).timeout
-	_destroy()
-
+	if is_inside_tree():
+		_destroy()
 
 func _physics_process(_delta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(direction) * SPEED
 	move_and_slide()
-	_check_player_collision()
-
+	_check_collisions()
 
 func _destroy() -> void:
 	queue_free()
 
 
-func _check_player_collision() -> void:
+func _check_collisions() -> void:
 	for i in range(get_slide_collision_count()):
-		var body := get_slide_collision(i).get_collider() as CollisionObject2D
-
-		if body == null or not body.get_collision_layer_value(1):
-			continue
-
-		var health := body.get_node_or_null("HealthComponent") as HealthComponent
-		if health:
-			health.take_damage(damage, self)
+		var collider := get_slide_collision(i).get_collider()
+		
+		var body := collider as CollisionObject2D
+		if body != null and body.get_collision_layer_value(1):
+			var health := body.get_node_or_null("HealthComponent") as HealthComponent
+			if health:
+				health.take_damage(damage, self)
 
 		_destroy()
 		return
+		

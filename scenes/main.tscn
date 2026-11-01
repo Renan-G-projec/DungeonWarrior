@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dftg4lre5dobe" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dn1dfydjjjmu4" path="res://features/player/player.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://hbugebch8c06" path="res://features/map/rooms/room_1.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://51404jjchaoi" path="res://features/map/rooms/room_5.tscn" id="2_sugp2"]
 
 [node name="Main" type="CanvasLayer" unique_id=198682224 node_paths=PackedStringArray("current_room")]
 script = ExtResource("1_o5qli")
-current_room = NodePath("Node/Room1")
+current_room = NodePath("Node/Room5")
 
 [node name="Node" type="Node2D" parent="." unique_id=1327179865]
 y_sort_enabled = true
 
-[node name="Room1" parent="Node" unique_id=1991131083 instance=ExtResource("2_jyhfs")]
+[node name="Room5" parent="Node" unique_id=1991131083 instance=ExtResource("2_sugp2")]
 
 [node name="Player" parent="Node" unique_id=2017001837 instance=ExtResource("2_0wfyh")]
 unique_name_in_owner = true

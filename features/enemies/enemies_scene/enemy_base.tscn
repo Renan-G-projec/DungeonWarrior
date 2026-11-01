@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bpb1sutj7mvtm" path="res://features/components/feel_component.gd" id="4_xsgr6"]
 [ext_resource type="Script" uid="uid://btsspixrplhwy" path="res://features/components/burning_component.gd" id="7_wj6k8"]
 [ext_resource type="Script" uid="uid://cwiu5p468npnt" path="res://features/components/knockback.gd" id="7_xxw78"]
+[ext_resource type="Script" uid="uid://ccer7p7p1ma36" path="res://features/components/freeze_component.gd" id="8_c76gi"]
 [ext_resource type="Script" uid="uid://uwvi4yj2vmqk" path="res://features/components/shoot_component.gd" id="8_wj6k8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj6k8"]
@@ -210,6 +211,13 @@ script = ExtResource("7_wj6k8")
 damage_target = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite")
 metadata/_custom_type_script = "uid://btsspixrplhwy"
+
+[node name="FreezeComponent" type="Node" parent="." unique_id=751296555 node_paths=PackedStringArray("health_component", "sprite", "target_to_freeze")]
+script = ExtResource("8_c76gi")
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite")
+target_to_freeze = NodePath("..")
+metadata/_custom_type_script = "uid://ccer7p7p1ma36"
 
 [node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("3_b8rtt")]
 offset_top = 6.0

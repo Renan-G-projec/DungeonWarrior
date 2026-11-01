@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqc475hcf28ji"
-path="res://.godot/imported/ghost_death.png-b7244f412d750d52f939fba6a2c4ae68.ctex"
+uid="uid://e3iti3ydu7q8"
+path="res://.godot/imported/projectile.png-0d5093456fbb82bc28f1c4c514e4fa6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/enemies/ghost_death.png"
-dest_files=["res://.godot/imported/ghost_death.png-b7244f412d750d52f939fba6a2c4ae68.ctex"]
+source_file="res://features/enemies/enemies_sprites/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-0d5093456fbb82bc28f1c4c514e4fa6d.ctex"]
 
 [params]
 

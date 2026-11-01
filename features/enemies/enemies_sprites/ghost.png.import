@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dloktptkc5rvd"
-path="res://.godot/imported/bat.png-3c6045a5f5dfe09b1f9d4e9968fa6976.ctex"
+uid="uid://bsedhtyri2oav"
+path="res://.godot/imported/ghost.png-5d12ee930848dedb024efcb801090b86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/enemies/bat.png"
-dest_files=["res://.godot/imported/bat.png-3c6045a5f5dfe09b1f9d4e9968fa6976.ctex"]
+source_file="res://features/enemies/enemies_sprites/ghost.png"
+dest_files=["res://.godot/imported/ghost.png-5d12ee930848dedb024efcb801090b86.ctex"]
 
 [params]
 
