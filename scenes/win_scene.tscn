@@ -1,3 +1,53 @@
 [gd_scene format=3 uid="uid://ddqheo2v5d35t"]
 
+[ext_resource type="Script" uid="uid://7vpx78rl8h3g" path="res://scenes/win_scene.gd" id="1_p78a6"]
+
 [node name="WinScene" type="CanvasLayer" unique_id=344091694]
+script = ExtResource("1_p78a6")
+
+[node name="Control" type="Control" parent="." unique_id=1440449459]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=1643081809]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -25.0
+offset_right = 46.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Thanks for playing!"
+
+[node name="Typewriter" type="RichTextLabel" parent="Control" unique_id=790128423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -12.0
+offset_right = 76.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "A little game by
+[wave connected=1 amp=4.0 freq=5.0][color=lime]HuntOrBeHunted83[/color][/wave] and [wave connected=1 amp=4.0 freq=5.0][color=lime]Renan[/color][/wave] :)
+(press any key to go back to the menu)"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
