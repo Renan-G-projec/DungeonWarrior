@@ -190,6 +190,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MasterVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=301395430]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 theme_override_font_sizes/normal_font_size = 4
@@ -198,14 +199,16 @@ text = "Master [color=yellow]100%[/color]"
 fit_content = true
 
 [node name="SoundVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=1341362965]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 theme_override_font_sizes/normal_font_size = 4
 bbcode_enabled = true
-text = "SFX [color=yellow]100%[/color]"
+text = "Sound [color=yellow]100%[/color]"
 fit_content = true
 
 [node name="MusicVolume" type="RichTextLabel" parent="SettingsPanel/Control/MarginContainer/SettingsContainer" unique_id=1524298406]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_4ytvr")
 theme_override_font_sizes/normal_font_size = 4

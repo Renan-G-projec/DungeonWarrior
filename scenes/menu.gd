@@ -6,7 +6,7 @@ extends Node
 	set(new_state):
 		current_state = new_state
 		_restore_button_animation(_current_button)
-		_previous_text = _buttons[current_state][0].text
+		_previous_text = _buttons[current_state][current_button_index].text
 		current_button_index = 0
 		
 
@@ -37,7 +37,7 @@ var _previous_button: RichTextLabel
 var _current_button: RichTextLabel
 @export var current_button_index: int:
 	set(val):
-		if current_button_index && val == current_button_index: return
+		if val == current_button_index: return
 		
 		
 		_previous_button = _buttons[current_state][current_button_index]
@@ -51,6 +51,7 @@ func _get_hovered_effect(string: String) -> String:
 	return "[wave amp=1.0 freq=4.0 connected=0][color=aqua]%s[/color][/wave]" % string
 
 func _ready() -> void:
+	_make_button_hover_animation(_buttons[current_state][current_button_index])
 	current_button_index = 0
 	
 	for button in _buttons["Menu"]:
@@ -59,10 +60,44 @@ func _ready() -> void:
 	for button in _buttons["Settings"]:
 		button.offset_transform_enabled = true
 		button.offset_transform_pivot_ratio = Vector2.ONE / 2
+	
+	Settings.master_volume_changed.connect(func() -> void:
+		var base_text: String = "Master %d%%" % int(Settings.master_volume * 100)
+		if current_button_index == 0: %MasterVolume.text = _get_hovered_effect(base_text)
+		else: %MasterVolume.text = base_text
+		_previous_text = base_text
+	)
+	
+	Settings.sound_effects_volume_changed.connect(func() -> void:
+		var base_text: String = "Sound %d%%" % int(Settings.sound_effects_volume * 100)
+		if current_button_index == 1: %SoundVolume.text = _get_hovered_effect(base_text)
+		else: %SoundVolume.text = base_text
+		_previous_text = base_text
+	)
+	
+	Settings.music_effects_volume_changed.connect(func() -> void:
+		var base_text: String = "Music %d%%" % int(Settings.music_effects_volume * 100)
+		if current_button_index == 2: %MusicVolume.text = _get_hovered_effect(base_text)
+		else: %MusicVolume.text = base_text
+		_previous_text = base_text
+	)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"): current_button_index -= 1
 	if Input.is_action_just_pressed("ui_down"): current_button_index += 1
+	
+	if current_state == "Settings":
+		if Input.is_action_just_pressed("ui_right"):
+			match(current_button_index):
+				0: Settings.master_volume += 0.05
+				1: Settings.sound_effects_volume += 0.05
+				2: Settings.music_effects_volume += 0.05
+		if Input.is_action_just_pressed("ui_left"):
+			match(current_button_index):
+				0: Settings.master_volume -= 0.05
+				1: Settings.sound_effects_volume -= 0.05
+				2: Settings.music_effects_volume -= 0.05
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		var action: Callable = _buttons_actions[current_state][current_button_index]
 		if action:
