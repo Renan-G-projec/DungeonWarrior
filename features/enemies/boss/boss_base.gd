@@ -16,12 +16,11 @@ var speed_multiplier: float = 1.0
 
 var _state: State = State.IDLE
 
-signal died()
-
 var _active: bool = false
 
 func _physics_process(delta: float) -> void:
 	if $HealthComponent.is_dead(): return
+	if !_target: return
 	
 	if _target_on_radius:
 		%VisionToPlayer.target_position = to_local(_target.global_position)
@@ -45,16 +44,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_health_component_died() -> void:
-	print("DIED")
 	set_physics_process(false)
-	died.emit()
+	
+	TransitionManager.flash(func() -> void: get_tree().change_scene_to_file("res://scenes/win_scene.tscn"))
+
 	%Sprite.play("death")
 	
 	# We need to check this otherwise when calling queue free or if the player exits before the animation ends this will change the animation or crash the engine because %Sprite will also be null.
 	%TriggerArea.monitoring = false
 	await %Sprite.animation_finished
 	Screenshake.shake(1)
-	queue_free()
+	if is_inside_tree(): queue_free()
 
 func _on_health_component_took_damage(_character, _damage: float, _position: Vector2) -> void:
 	$FeelComponent.hit_animation(%Sprite)

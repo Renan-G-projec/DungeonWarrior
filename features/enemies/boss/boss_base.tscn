@@ -222,9 +222,6 @@ metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 script = ExtResource("3_h5uod")
 metadata/_custom_type_script = "uid://bpb1sutj7mvtm"
 
-[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_5k3w4")]
-bind_health_component = NodePath("../HealthComponent")
-
 [node name="FollowPlayerComponent" parent="." unique_id=1624101257 instance=ExtResource("5_wojv2")]
 speed = 10.0
 damage = 15
@@ -234,10 +231,13 @@ script = ExtResource("7_c7puh")
 
 [node name="PullAttack" type="Node" parent="." unique_id=1847025804 node_paths=PackedStringArray("follow")]
 script = ExtResource("8_bl1kf")
-stun_duration = 2.0
+stun_duration = 1.0
 min_range = 30.0
 stop_distance = 20.0
 follow = NodePath("../FollowPlayerComponent")
+
+[node name="Lifebar" parent="." unique_id=1262679545 node_paths=PackedStringArray("bind_health_component") instance=ExtResource("4_5k3w4")]
+bind_health_component = NodePath("../HealthComponent")
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_shape_exited" from="TriggerArea" to="." method="_on_trigger_area_body_shape_exited"]
