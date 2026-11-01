@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/enemies_scene/mushroom.tscn" id="4_v86rl"]
 [ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/enemies_scene/bat.tscn" id="5_13sgg"]
 [ext_resource type="Texture2D" uid="uid://cqkhdvyrnvfwo" path="res://scenes/title.png" id="6_13sgg"]
+[ext_resource type="AudioStream" uid="uid://iu5w6baqpkm2" path="res://sounds/blipSelect.wav" id="9_70i5f"]
+[ext_resource type="Script" uid="uid://beypyhi84i8rh" path="res://features/components/sound_player.gd" id="10_mj5lg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
 content_margin_left = 0.0
@@ -33,13 +35,13 @@ tile_set = ExtResource("2_4ytvr")
 [node name="Bat" parent="BackgroundWall" unique_id=900112183 instance=ExtResource("5_13sgg")]
 position = Vector2(150, 24)
 
-[node name="Lifebar" parent="BackgroundWall/Bat" index="9" unique_id=1262679545]
+[node name="Lifebar" parent="BackgroundWall/Bat" index="8" unique_id=1262679545]
 visible = false
 
 [node name="Mushroom" parent="BackgroundWall" unique_id=28415231 instance=ExtResource("4_v86rl")]
 position = Vector2(58, 81)
 
-[node name="Lifebar" parent="BackgroundWall/Mushroom" index="10" unique_id=1262679545]
+[node name="Lifebar" parent="BackgroundWall/Mushroom" index="11" unique_id=1262679545]
 visible = false
 
 [node name="Ghost" parent="BackgroundWall" unique_id=651179315 instance=ExtResource("3_g3eks")]
@@ -223,6 +225,11 @@ theme_override_font_sizes/normal_font_size = 4
 bbcode_enabled = true
 text = "Back"
 fit_content = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=11419286]
+stream = ExtResource("9_70i5f")
+script = ExtResource("10_mj5lg")
+metadata/_custom_type_script = "uid://beypyhi84i8rh"
 
 [editable path="BackgroundWall/Bat"]
 [editable path="BackgroundWall/Mushroom"]

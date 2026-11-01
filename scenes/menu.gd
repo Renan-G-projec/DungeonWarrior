@@ -39,12 +39,13 @@ var _current_button: RichTextLabel
 	set(val):
 		if val == current_button_index: return
 		
-		
 		_previous_button = _buttons[current_state][current_button_index]
 		_restore_button_animation(_buttons[current_state][current_button_index])
 		current_button_index = clamp(val, 0, _buttons[current_state].size() - 1)
 		_make_button_hover_animation(_buttons[current_state][current_button_index])
 		_current_button = _buttons[current_state][current_button_index]
+		
+		$SoundPlayer.play()
 		
 
 func _get_hovered_effect(string: String) -> String:

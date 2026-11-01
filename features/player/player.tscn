@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ic078if115q4" path="res://features/player/player.gd" id="1_fcb3x"]
 [ext_resource type="Texture2D" uid="uid://cqtyv25qpdoq" path="res://features/player/player.png" id="2_k34i2"]
+[ext_resource type="AudioStream" uid="uid://c14n80ieubfjv" path="res://sounds/hitHurt.wav" id="2_uqugw"]
+[ext_resource type="Script" uid="uid://beypyhi84i8rh" path="res://features/components/sound_player.gd" id="3_5rlqq"]
 [ext_resource type="Script" uid="uid://c7gd8nrwsduhk" path="res://features/components/health_component.gd" id="3_emvbc"]
 [ext_resource type="PackedScene" uid="uid://cr6e8ow0yxrfy" path="res://features/components/lifebar.tscn" id="4_i250s"]
 [ext_resource type="PackedScene" uid="uid://dfi2lifuc76ex" path="res://features/components/dash_component.tscn" id="5_7mbft"]
@@ -189,6 +191,11 @@ size = Vector2(7, 2)
 y_sort_enabled = true
 collision_mask = 19
 script = ExtResource("1_fcb3x")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1051878105]
+stream = ExtResource("2_uqugw")
+script = ExtResource("3_5rlqq")
+metadata/_custom_type_script = "uid://beypyhi84i8rh"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=535856669]
 y_sort_enabled = true
