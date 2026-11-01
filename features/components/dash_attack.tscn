@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d0wlyhenrdpf7"]
+
+[ext_resource type="Script" uid="uid://bwangwviyf561" path="res://features/components/dash_attack.gd" id="1_bsqur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsqur"]
+radius = 7.0
+
+[node name="DashAttack" type="Node2D" unique_id=1644405037]
+script = ExtResource("1_bsqur")
+
+[node name="HitArea" type="Area2D" parent="." unique_id=108918652]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=4046798]
+shape = SubResource("CircleShape2D_bsqur")
