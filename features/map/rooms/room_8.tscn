@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dqf8l243cfj2k"]
+
+[ext_resource type="PackedScene" uid="uid://bib25hwqeet3f" path="res://features/map/room_base.tscn" id="1_1ihva"]
+
+[node name="Room8" unique_id=1991131083 instance=ExtResource("1_1ihva")]
+
+[node name="Walls" parent="." index="0" unique_id=1727301413]
+tile_map_data = PackedByteArray()
