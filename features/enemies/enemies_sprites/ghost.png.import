@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsedhtyri2oav"
-path="res://.godot/imported/ghost.png-9e11a52a6841231e427be132e45a5403.ctex"
+path="res://.godot/imported/ghost.png-5d12ee930848dedb024efcb801090b86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/enemies/ghost.png"
-dest_files=["res://.godot/imported/ghost.png-9e11a52a6841231e427be132e45a5403.ctex"]
+source_file="res://features/enemies/enemies_sprites/ghost.png"
+dest_files=["res://.godot/imported/ghost.png-5d12ee930848dedb024efcb801090b86.ctex"]
 
 [params]
 

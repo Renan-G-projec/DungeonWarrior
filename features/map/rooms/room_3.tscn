@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bh4pew5jyh1mq" path="res://features/map/door.tscn" id="2_rufo4"]
 [ext_resource type="PackedScene" uid="uid://cwy77uvnadex" path="res://features/chest/chest.tscn" id="3_8jiyq"]
 [ext_resource type="PackedScene" uid="uid://ekpvivw2k8ru" path="res://features/weapons/weapons/bow.tscn" id="4_tmhal"]
-[ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="5_tmhal"]
+[ext_resource type="PackedScene" uid="uid://bjl2iourvh2df" path="res://features/enemies/enemies_scene/slime.tscn" id="5_tmhal"]
 
 [node name="Room3" unique_id=1991131083 instance=ExtResource("1_6mfjl")]
 
@@ -38,4 +38,4 @@ position = Vector2(80, 54)
 position = Vector2(-73, 55)
 
 [node name="Slime" parent="." index="6" unique_id=651179315 instance=ExtResource("5_tmhal")]
-position = Vector2(43, 33)
+position = Vector2(30, 27)

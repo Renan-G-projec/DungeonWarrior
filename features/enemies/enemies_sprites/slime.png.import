@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crw556fsdriyo"
-path="res://.godot/imported/mushroom.png-04574295dc29c601e3c46e490055f9bc.ctex"
+uid="uid://chnl7paxiseom"
+path="res://.godot/imported/slime.png-1bc7c986ae1eb1234c4bdd055cf20244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/enemies/mushroom.png"
-dest_files=["res://.godot/imported/mushroom.png-04574295dc29c601e3c46e490055f9bc.ctex"]
+source_file="res://features/enemies/enemies_sprites/slime.png"
+dest_files=["res://.godot/imported/slime.png-1bc7c986ae1eb1234c4bdd055cf20244.ctex"]
 
 [params]
 

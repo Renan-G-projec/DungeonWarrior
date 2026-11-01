@@ -4,9 +4,9 @@
 [ext_resource type="TileSet" uid="uid://douwqve4hrr3m" path="res://features/map/tileset.tres" id="2_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://pf50x5m3mu1c" path="res://scenes/tiled.png" id="2_mhnvy"]
 [ext_resource type="Theme" uid="uid://b4alkjknljxp1" path="res://scenes/menu.res" id="3_4ytvr"]
-[ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies/ghost.tscn" id="3_g3eks"]
-[ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/mushroom.tscn" id="4_v86rl"]
-[ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/bat.tscn" id="5_13sgg"]
+[ext_resource type="PackedScene" uid="uid://dga3ik7pwtbn7" path="res://features/enemies/enemies_scene/ghost.tscn" id="3_g3eks"]
+[ext_resource type="PackedScene" uid="uid://dgn7amf5jlfso" path="res://features/enemies/enemies_scene/mushroom.tscn" id="4_v86rl"]
+[ext_resource type="PackedScene" uid="uid://depkumqctdya2" path="res://features/enemies/enemies_scene/bat.tscn" id="5_13sgg"]
 [ext_resource type="Texture2D" uid="uid://cqkhdvyrnvfwo" path="res://scenes/title.png" id="6_13sgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]

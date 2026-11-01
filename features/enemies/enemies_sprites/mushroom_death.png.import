@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv7b0wc2t0fod"
-path="res://.godot/imported/ghost_attack.png-a16249d80ac01f07e5005d9765f7b6ce.ctex"
+uid="uid://bpybb7c23boox"
+path="res://.godot/imported/mushroom_death.png-50119f650d90a0671157a66e6930511a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/enemies/enemies/ghost_attack.png"
-dest_files=["res://.godot/imported/ghost_attack.png-a16249d80ac01f07e5005d9765f7b6ce.ctex"]
+source_file="res://features/enemies/enemies_sprites/mushroom_death.png"
+dest_files=["res://.godot/imported/mushroom_death.png-50119f650d90a0671157a66e6930511a.ctex"]
 
 [params]
 
