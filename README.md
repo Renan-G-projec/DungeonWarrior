@@ -40,10 +40,6 @@ There are these enemies:
 ![Boss](.github/Boss.png)
 ![Bat](.github/Bat.png)
 
-## Notes:
-The door has a placeholder sprite. You can interact with it by pressing E near it!
-
-
 ## How to build
 Clone the repo with `git clone https://github.com/Renan-G-projec.git`
 Open the folder with godot and click the big run button :p
