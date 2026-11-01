@@ -77,6 +77,7 @@ func _physics_process(delta: float) -> void:
 				_set_state(State.IDLE)
 
 func _set_state(new_state: State) -> void:
+	var previous_state := state
 	state = new_state
 	match state:
 		
@@ -91,10 +92,12 @@ func _set_state(new_state: State) -> void:
 		State.DASHING:
 			_dash_elapsed = 0.0
 			_already_hit.clear()
+			_set_phasing(true)
 			hit_area.set_deferred("monitoring", true)
 			
 		State.COOLDOWN:
 			_timer = cooldown_time
+			_set_phasing(false)
 			hit_area.set_deferred("monitoring", false)
 			
 	state_changed.emit(state)
@@ -116,6 +119,7 @@ func _hit_wall() -> bool:
 	for i in body.get_slide_collision_count():
 		var collider = body.get_slide_collision(i).get_collider()
 		if collider is Node and not collider.is_in_group(target_group):
+			print("Hit wall:", collider.name)
 			return true
 	return false
 	
@@ -143,6 +147,17 @@ func _draw() -> void:
 	draw_rect(Rect2(0, -half, length, telegraph_width), Color(1, 0, 0, 0.8), false, 2.0)
 	draw_rect(Rect2(0, -half, length * time, telegraph_width), Color(1, 0, 0, 0.25))
 
+func _set_phasing(enabled:bool) -> void:
+	if target == null or not is_instance_valid(target):
+		return
+	if not (target is PhysicsBody2D):
+		return
+	if enabled:
+		body.add_collision_exception_with(target)
+		target.add_collision_exception_with(body)
+	else:
+		body.add_collision_exception_with(target)
+		target.add_collision_exception_with(body)
 
 	
 	

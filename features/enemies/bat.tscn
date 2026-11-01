@@ -163,6 +163,7 @@ offset_bottom = 6.0
 bind_health_component = NodePath("../HealthComponent")
 
 [node name="DashAttack" parent="." unique_id=1644405037 instance=ExtResource("8_ps300")]
+cooldown_time = 0.5
 
 [connection signal="area_entered" from="TriggerArea" to="." method="_on_trigger_area_area_entered"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
