@@ -20,16 +20,9 @@ signal died()
 
 var _active: bool = false
 
-
-func _ready() -> void:
-	$CollisionShape2D.set_deferred("disabled", true)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	$CollisionShape2D.set_deferred("disabled", false) 
-	self.visible = true
-
 func _physics_process(delta: float) -> void:
+	if $HealthComponent.is_dead(): return
+	
 	if _target_on_radius:
 		%VisionToPlayer.target_position = to_local(_target.global_position)
 		
@@ -52,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_health_component_died() -> void:
+	print("DIED")
+	set_physics_process(false)
 	died.emit()
 	%Sprite.play("death")
 	
@@ -76,9 +71,14 @@ func _on_trigger_area_body_entered(body: Node2D) -> void:
 	_target = player
 
 func _on_trigger_area_body_exited(body: Node2D) -> void:
+	if $HealthComponent.is_dead(): return
 	_state = State.IDLE
 	velocity = Vector2.ZERO
 	%Sprite.play("idle")
 	if body == _target:
 		_target_on_radius = false
 		_target = null
+
+
+func _on_trigger_area_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.

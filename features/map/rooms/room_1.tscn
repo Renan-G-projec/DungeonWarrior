@@ -15,7 +15,7 @@ tile_map_data = PackedByteArray("AAADAAcAAAABAAIAAAADAAUAAAABAAIAAAADAAYAAAACAAE
 [node name="Door" parent="." index="2" unique_id=1475764445 instance=ExtResource("2_be3bm")]
 position = Vector2(76, 77)
 rotation = 1.5707964
-target_scene = "uid://bkumstfib4vw0"
+target_scene = "uid://51404jjchaoi"
 
 [node name="Mushroom" parent="." index="3" unique_id=651179315 instance=ExtResource("3_be3bm")]
 position = Vector2(104, 42)

@@ -214,6 +214,8 @@ shape = SubResource("RectangleShape2D_h5uod")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=798201242]
 script = ExtResource("2_c7puh")
+max_life = 40.0
+life = 40.0
 metadata/_custom_type_script = "uid://c7gd8nrwsduhk"
 
 [node name="FeelComponent" type="Node" parent="." unique_id=143178344]
@@ -236,3 +238,8 @@ stun_duration = 2.0
 min_range = 30.0
 stop_distance = 20.0
 follow = NodePath("../FollowPlayerComponent")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_shape_exited" from="TriggerArea" to="." method="_on_trigger_area_body_shape_exited"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
